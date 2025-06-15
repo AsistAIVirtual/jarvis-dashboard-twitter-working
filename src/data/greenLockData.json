@@ -1,0 +1,462 @@
+[
+  {
+    "name": "Solace",
+    "ticker": "SOLACE",
+    "baseUnlock": 108,
+    "date": "2025-06-11",
+    "image": "/images/solace.png",
+    "participants": "12,579",
+    "oversub": "2541.05%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Verdant",
+    "ticker": "VDNT",
+    "baseUnlock": 18,
+    "date": "2025-06-11",
+    "image": "/images/verdant.png",
+    "participants": "6,557",
+    "oversub": "801.61%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Bookie AI",
+    "ticker": "BOOKIE",
+    "baseUnlock": 78,
+    "date": "2025-06-11",
+    "image": "/images/bookie.png",
+    "participants": "9,348",
+    "oversub": "1435.17%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "artihm",
+    "ticker": "ART",
+    "baseUnlock": 171,
+    "date": "2025-06-11",
+    "image": "/images/artihm.png",
+    "participants": "2,078",
+    "oversub": "378.99%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Magnus Opus",
+    "ticker": "MAGNUS",
+    "baseUnlock": 16,
+    "date": "2025-06-11",
+    "image": "/images/magnus.png",
+    "participants": "5,640",
+    "oversub": "827.45%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "VirgenIQ",
+    "ticker": "VIQ",
+    "baseUnlock": 9,
+    "date": "2025-06-11",
+    "image": "/images/virgeniq.png",
+    "participants": "724",
+    "oversub": "136.27%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "AInalyst",
+    "ticker": "AIN",
+    "baseUnlock": 14,
+    "date": "2025-06-11",
+    "image": "/images/ainalyst.png",
+    "participants": "3,809",
+    "oversub": "560.78%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Mello AI",
+    "ticker": "MELLO",
+    "baseUnlock": 82,
+    "date": "2025-06-11",
+    "image": "/images/melloai.png",
+    "participants": "1,893",
+    "oversub": "326.32%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "NOTHING",
+    "ticker": "NOTHING",
+    "baseUnlock": 7884,
+    "date": "2025-06-11",
+    "image": "/images/nothing.png",
+    "participants": "1,138",
+    "oversub": "247.16%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "XOE",
+    "ticker": "XOE",
+    "baseUnlock": 165,
+    "date": "2025-06-11",
+    "image": "/images/xoe.png",
+    "participants": "2,363",
+    "oversub": "388.15%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "RoboStack",
+    "ticker": "ROBOT",
+    "baseUnlock": 12,
+    "date": "2025-06-11",
+    "image": "/images/robostack.png",
+    "participants": "5,147",
+    "oversub": "1238.45%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "MindYaps",
+    "ticker": "MNY",
+    "baseUnlock": 170,
+    "date": "2025-06-11",
+    "image": "/images/mindyaps.png",
+    "participants": "810",
+    "oversub": "185.41%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Capminal",
+    "ticker": "CAP",
+    "baseUnlock": 82,
+    "date": "2025-06-11",
+    "image": "/images/capminal.png",
+    "participants": "1,897",
+    "oversub": "356.89%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "nAIncy",
+    "ticker": "NAINCY",
+    "baseUnlock": 11,
+    "date": "2025-06-11",
+    "image": "/images/naincy.png",
+    "participants": "6,664",
+    "oversub": "1584.40%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Bizzy",
+    "ticker": "BIZ",
+    "baseUnlock": 71,
+    "date": "2025-06-11",
+    "image": "/images/bizzy.png",
+    "participants": "5,279",
+    "oversub": "1345.95%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Maneki AI",
+    "ticker": "MANEKI",
+    "baseUnlock": 8,
+    "date": "2025-06-11",
+    "image": "/images/manekiai.png",
+    "participants": "4,929",
+    "oversub": "938.98%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Arbus",
+    "ticker": "ARBUS",
+    "baseUnlock": 6,
+    "date": "2025-06-11",
+    "image": "/images/arbus.png",
+    "participants": "7,482",
+    "oversub": "1808.19%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "xLLM2",
+    "ticker": "XLLM2",
+    "baseUnlock": 0,
+    "date": "2025-05-31",
+    "image": "/images/xllm2.png",
+    "participants": "1,812",
+    "oversub": "307.80%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Super Connector",
+    "ticker": "SUPER",
+    "baseUnlock": 5,
+    "date": "2025-06-11",
+    "image": "/images/super.png",
+    "participants": "2,496",
+    "oversub": "523.33%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Axelrod",
+    "ticker": "AXR",
+    "baseUnlock": 1,
+    "date": "2025-06-11",
+    "image": "/images/axelrod.png",
+    "participants": "7,004",
+    "oversub": "2483.15%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "GPTWARS AI",
+    "ticker": "GPTWAI",
+    "baseUnlock": 92,
+    "date": "2025-06-11",
+    "image": "/images/gptwarsai.png",
+    "participants": "3,483",
+    "oversub": "783.81%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Gloria",
+    "ticker": "GLORIA",
+    "baseUnlock": 91,
+    "date": "2025-06-11",
+    "image": "/images/gloria.png",
+    "participants": "2,130",
+    "oversub": "686.26%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Arcturian AI",
+    "ticker": "LIGHT",
+    "baseUnlock": 113,
+    "date": "2025-06-11",
+    "image": "/images/arcturian.png",
+    "participants": "878",
+    "oversub": "314.47%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "WhaleIntel",
+    "ticker": "WINT",
+    "baseUnlock": 134,
+    "date": "2025-06-11",
+    "image": "/images/whaleintel.png",
+    "participants": "614",
+    "oversub": "396.74%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "BasisOs",
+    "ticker": "BIOS",
+    "baseUnlock": 136,
+    "date": "2025-06-11",
+    "image": "/images/basisos.png",
+    "participants": "917",
+    "oversub": "537.40%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "h011yw00d",
+    "ticker": "HOLLY",
+    "baseUnlock": 99,
+    "date": "2025-06-11",
+    "image": "/images/h011yw00d.png",
+    "participants": "1,854",
+    "oversub": "2132.30%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Virgen Market",
+    "ticker": "VGM",
+    "baseUnlock": 78,
+    "date": "2025-06-11",
+    "image": "/images/virgen-market.png",
+    "participants": "4,570",
+    "oversub": "486.45%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Chat4pt",
+    "ticker": "CHAT4PT",
+    "baseUnlock": 11,
+    "date": "2025-06-11",
+    "image": "/images/chat4pt.png",
+    "participants": "2,261",
+    "oversub": "302.64%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "JARVIS AIGENT",
+    "ticker": "JARVIS",
+    "baseUnlock": 81,
+    "date": "2025-06-11",
+    "image": "/images/jarvis-aigent.png",
+    "participants": "3,158",
+    "oversub": "356.11%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "ASYNCHRONUS",
+    "ticker": "ASYNC",
+    "baseUnlock": 23,
+    "date": "2025-06-11",
+    "image": "/images/asynchronus.png",
+    "participants": "8,726",
+    "oversub": "928.34%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "ERM",
+    "ticker": "ERM",
+    "baseUnlock": 83,
+    "date": "2025-06-11",
+    "image": "/images/erm.png",
+    "participants": "6,317",
+    "oversub": "646.43%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Mozaiq",
+    "ticker": "MOZAIQ",
+    "baseUnlock": 22,
+    "date": "2025-06-11",
+    "image": "/images/mozaiq.png",
+    "participants": "1,855",
+    "oversub": "220%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "SentiArch",
+    "ticker": "STA",
+    "baseUnlock": 115,
+    "date": "2025-06-11",
+    "image": "/images/sentiarch.png",
+    "participants": "560",
+    "oversub": "148.62%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Siya AI",
+    "ticker": "SIYA",
+    "baseUnlock": 83,
+    "date": "2025-06-11",
+    "image": "/images/siya-ai.png",
+    "participants": "8,881",
+    "oversub": "997.55%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Oracle Of Preferences ZK",
+    "ticker": "OOPZ",
+    "baseUnlock": 25,
+    "date": "2025-06-11",
+    "image": "/images/oracle-of-preference-zk.png",
+    "participants": "5,524",
+    "oversub": "621.44%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "0xmeta AI",
+    "ticker": "0xMETA",
+    "baseUnlock": 57,
+    "date": "2025-06-11",
+    "image": "/images/0xmeta-ai.png",
+    "participants": "2,814",
+    "oversub": "330.63%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "ARTSED",
+    "ticker": "ARTS",
+    "baseUnlock": 90,
+    "date": "2025-06-11",
+    "image": "/images/artsed.png",
+    "participants": "5,329",
+    "oversub": "488.84%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Sniper Search",
+    "ticker": "SS",
+    "baseUnlock": 88,
+    "date": "2025-06-11",
+    "image": "/images/sniper-search.png",
+    "participants": "2,236",
+    "oversub": "299.45%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "NOUN584",
+    "ticker": "QUACK",
+    "baseUnlock": 28,
+    "date": "2025-06-11",
+    "image": "/images/noun584.png",
+    "participants": "3,643",
+    "oversub": "385%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Monocle",
+    "ticker": "MONO",
+    "baseUnlock": 50,
+    "date": "2025-06-11",
+    "image": "/images/monocle.png",
+    "participants": "850",
+    "oversub": "128.14%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "aiKat",
+    "ticker": "AIKAT",
+    "baseUnlock": 60,
+    "date": "2025-06-11",
+    "image": "/images/aiKat.png",
+    "participants": "2,932",
+    "oversub": "318.09%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "whim bet",
+    "ticker": "WHIM",
+    "baseUnlock": 28,
+    "date": "2025-06-11",
+    "image": "/images/whim-bet.png",
+    "participants": "3,338",
+    "oversub": "1,008.71%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "IRIS",
+    "ticker": "IRIS",
+    "baseUnlock": 182,
+    "date": "2025-06-12",
+    "image": "/images/iris.png",
+    "participants": "19,193",
+    "oversub": "2,796.83%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "AppDuck",
+    "ticker": "DUCK",
+    "baseUnlock": 89,
+    "date": "2025-06-12",
+    "image": "/images/appduck.png",
+    "participants": "2,311",
+    "oversub": "309,70%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "Nemesis AI Trader",
+    "ticker": "NEMESIS",
+    "baseUnlock": 90,
+    "date": "2025-06-12",
+    "image": "/images/nemesis-ai-trader.png",
+    "participants": "3,120",
+    "oversub": "335,82%",
+    "launchTime": "13:00"
+  },
+  {
+    "name": "STAKE",
+    "ticker": "STAKE",
+    "baseUnlock": 176,
+    "date": "2025-06-12",
+    "image": "/images/stake.png",
+    "participants": "845",
+    "oversub": "196.35%",
+    "launchTime": "13:00"
+  }
+]

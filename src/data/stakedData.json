@@ -1,0 +1,626 @@
+[
+  {
+    "agent": "LUMI",
+    "total_staked": "703,109,046"
+  },
+  {
+    "agent": "CYI",
+    "total_staked": "602,587,444"
+  },
+  {
+    "agent": "BCREAT",
+    "total_staked": "594,376,463"
+  },
+  {
+    "agent": "AIZSF",
+    "total_staked": "592,717,244"
+  },
+  {
+    "agent": "TOSHI",
+    "total_staked": "507,712,301"
+  },
+  {
+    "agent": "WAI",
+    "total_staked": "471,427,221"
+  },
+  {
+    "agent": "VIRGEN",
+    "total_staked": "453,828,144"
+  },
+  {
+    "agent": "BRO",
+    "total_staked": "440,626,468"
+  },
+  {
+    "agent": "DEGENC",
+    "total_staked": "436,195,905"
+  },
+  {
+    "agent": "SANTA",
+    "total_staked": "431,805,486"
+  },
+  {
+    "agent": "XAVI",
+    "total_staked": "422,825,374"
+  },
+  {
+    "agent": "WINT",
+    "total_staked": "392,259,120"
+  },
+  {
+    "agent": "ATA",
+    "total_staked": "388,959,936"
+  },
+  {
+    "agent": "BIZ",
+    "total_staked": "385,902,181"
+  },
+  {
+    "agent": "MNY",
+    "total_staked": "383,345,607"
+  },
+  {
+    "agent": "LING",
+    "total_staked": "379,361,559"
+  },
+  {
+    "agent": "SHOW",
+    "total_staked": "370,111,086"
+  },
+  {
+    "agent": "NAINCY",
+    "total_staked": "359,284,891"
+  },
+  {
+    "agent": "XOE",
+    "total_staked": "354,428,004"
+  },
+  {
+    "agent": "ROBOT",
+    "total_staked": "348,100,523"
+  },
+  {
+    "agent": "ARBUS",
+    "total_staked": "335,798,494"
+  },
+  {
+    "agent": "GUAN",
+    "total_staked": "335,461,361"
+  },
+  {
+    "agent": "AIN",
+    "total_staked": "326,216,576"
+  },
+  {
+    "agent": "MANEKI",
+    "total_staked": "326,149,958"
+  },
+  {
+    "agent": "NOTHING",
+    "total_staked": "325,694,260"
+  },
+  {
+    "agent": "MELLO",
+    "total_staked": "321,450,808"
+  },
+  {
+    "agent": "FRED",
+    "total_staked": "319,538,788"
+  },
+  {
+    "agent": "LEONAI",
+    "total_staked": "316,680,248"
+  },
+  {
+    "agent": "SOLACE",
+    "total_staked": "316,106,793"
+  },
+  {
+    "agent": "BOOKIE",
+    "total_staked": "314,536,547"
+  },
+  {
+    "agent": "CAP",
+    "total_staked": "313,056,937"
+  },
+  {
+    "agent": "VOLTX",
+    "total_staked": "313,010,578"
+  },
+  {
+    "agent": "GLORIA",
+    "total_staked": "306,463,085"
+  },
+  {
+    "agent": "LIGHT",
+    "total_staked": "306,010,343"
+  },
+  {
+    "agent": "BRAIN",
+    "total_staked": "301,607,741"
+  },
+  {
+    "agent": "AURA",
+    "total_staked": "295,810,442"
+  },
+  {
+    "agent": "BIOS",
+    "total_staked": "295,664,999"
+  },
+  {
+    "agent": "GPTWAI",
+    "total_staked": "295,330,021"
+  },
+  {
+    "agent": "MAICRO",
+    "total_staked": "289,475,573"
+  },
+  {
+    "agent": "STAKE",
+    "total_staked": "287,638,527"
+  },
+  {
+    "agent": "SPLOOT",
+    "total_staked": "284,988,445"
+  },
+  {
+    "agent": "ROAST",
+    "total_staked": "284,119,393"
+  },
+  {
+    "agent": "SWARM",
+    "total_staked": "283,455,373"
+  },
+  {
+    "agent": "ATHENA",
+    "total_staked": "278,733,337"
+  },
+  {
+    "agent": "ETHY",
+    "total_staked": "263,898,951"
+  },
+  {
+    "agent": "SUISS",
+    "total_staked": "262,352,298"
+  },
+  {
+    "agent": "ART",
+    "total_staked": "257,266,268"
+  },
+  {
+    "agent": "VRUFF",
+    "total_staked": "255,576,425"
+  },
+  {
+    "agent": "SUPER",
+    "total_staked": "255,107,740"
+  },
+  {
+    "agent": "SLAYER",
+    "total_staked": "254,956,000"
+  },
+  {
+    "agent": "MAGNUS",
+    "total_staked": "254,159,121"
+  },
+  {
+    "agent": "XLLM2",
+    "total_staked": "249,754,520"
+  },
+  {
+    "agent": "AXR",
+    "total_staked": "246,303,375"
+  },
+  {
+    "agent": "WHIM",
+    "total_staked": "246,164,793"
+  },
+  {
+    "agent": "CERTAI",
+    "total_staked": "245,099,726"
+  },
+  {
+    "agent": "VIQ",
+    "total_staked": "243,454,310"
+  },
+  {
+    "agent": "H1DR4",
+    "total_staked": "237,521,623"
+  },
+  {
+    "agent": "KEVAI",
+    "total_staked": "234,432,867"
+  },
+  {
+    "agent": "COPE",
+    "total_staked": "233,012,717"
+  },
+  {
+    "agent": "LEO",
+    "total_staked": "232,270,729"
+  },
+  {
+    "agent": "LOKY",
+    "total_staked": "231,509,241"
+  },
+  {
+    "agent": "TRUST",
+    "total_staked": "229,676,927"
+  },
+  {
+    "agent": "WIRE",
+    "total_staked": "217,317,744"
+  },
+  {
+    "agent": "NYKO",
+    "total_staked": "217,192,840"
+  },
+  {
+    "agent": "LESTER",
+    "total_staked": "216,635,379"
+  },
+  {
+    "agent": "PTAI",
+    "total_staked": "215,423,137"
+  },
+  {
+    "agent": "VDNT",
+    "total_staked": "214,300,052"
+  },
+  {
+    "agent": "WBUG",
+    "total_staked": "210,217,631"
+  },
+  {
+    "agent": "CITDEL",
+    "total_staked": "208,460,027"
+  },
+  {
+    "agent": "EYE",
+    "total_staked": "202,734,794"
+  },
+  {
+    "agent": "PRSNA",
+    "total_staked": "200,085,067"
+  },
+  {
+    "agent": "AYAZ",
+    "total_staked": "197,579,220"
+  },
+  {
+    "agent": "OLYN",
+    "total_staked": "194,789,180"
+  },
+  {
+    "agent": "J3FF",
+    "total_staked": "194,035,877"
+  },
+  {
+    "agent": "HOLLY",
+    "total_staked": "190,284,328"
+  },
+  {
+    "agent": "DGENAI",
+    "total_staked": "189,833,024"
+  },
+  {
+    "agent": "PA",
+    "total_staked": "186,831,573"
+  },
+  {
+    "agent": "ADM",
+    "total_staked": "180,089,559"
+  },
+  {
+    "agent": "CONVO",
+    "total_staked": "179,601,372"
+  },
+  {
+    "agent": "SCOOP",
+    "total_staked": "178,231,358"
+  },
+  {
+    "agent": "MUSIC",
+    "total_staked": "175,045,653"
+  },
+  {
+    "agent": "SEKOIA",
+    "total_staked": "173,709,731"
+  },
+  {
+    "agent": "IONA",
+    "total_staked": "169,814,510"
+  },
+  {
+    "agent": "GEAI",
+    "total_staked": "169,394,365"
+  },
+  {
+    "agent": "SQDGN",
+    "total_staked": "168,454,222"
+  },
+  {
+    "agent": "CALLS",
+    "total_staked": "168,323,834"
+  },
+  {
+    "agent": "AIRENE",
+    "total_staked": "166,375,493"
+  },
+  {
+    "agent": "GAME",
+    "total_staked": "158,261,934"
+  },
+  {
+    "agent": "SYMP",
+    "total_staked": "154,327,338"
+  },
+  {
+    "agent": "TIBBIR",
+    "total_staked": "151,866,135"
+  },
+  {
+    "agent": "MISATO",
+    "total_staked": "149,686,926"
+  },
+  {
+    "agent": "CHAT4PT",
+    "total_staked": "149,637,018"
+  },
+  {
+    "agent": "MVGA",
+    "total_staked": "133,658,682"
+  },
+  {
+    "agent": "VU",
+    "total_staked": "132,438,519"
+  },
+  {
+    "agent": "TIAN",
+    "total_staked": "132,174,680"
+  },
+  {
+    "agent": "H4CK",
+    "total_staked": "128,505,629"
+  },
+  {
+    "agent": "NFTXBT",
+    "total_staked": "125,680,132"
+  },
+  {
+    "agent": "$HOUND",
+    "total_staked": "124,258,113"
+  },
+  {
+    "agent": "RWAI",
+    "total_staked": "122,126,895"
+  },
+  {
+    "agent": "HANA",
+    "total_staked": "118,153,334"
+  },
+  {
+    "agent": "ECHO",
+    "total_staked": "118,133,113"
+  },
+  {
+    "agent": "POLY",
+    "total_staked": "113,872,992"
+  },
+  {
+    "agent": "AIXCB",
+    "total_staked": "108,109,103"
+  },
+  {
+    "agent": "$UP",
+    "total_staked": "102,244,740"
+  },
+  {
+    "agent": "MAYA",
+    "total_staked": "100,923,437"
+  },
+  {
+    "agent": "KOGIN",
+    "total_staked": "97,946,244"
+  },
+  {
+    "agent": "LMNL",
+    "total_staked": "94,561,446"
+  },
+  {
+    "agent": "RORONX",
+    "total_staked": "90,717,017"
+  },
+  {
+    "agent": "VIRTU",
+    "total_staked": "89,477,306"
+  },
+  {
+    "agent": "LUNA",
+    "total_staked": "88,062,139"
+  },
+  {
+    "agent": "VISION",
+    "total_staked": "86,059,082"
+  },
+  {
+    "agent": "DORA",
+    "total_staked": "85,602,211"
+  },
+  {
+    "agent": "CROW",
+    "total_staked": "73,828,117"
+  },
+  {
+    "agent": "GEKKO",
+    "total_staked": "62,684,835"
+  },
+  {
+    "agent": "AGIXBT",
+    "total_staked": "62,340,053"
+  },
+  {
+    "agent": "VAIN",
+    "total_staked": "61,138,647"
+  },
+  {
+    "agent": "SUISS",
+    "total_staked": "57,814,884"
+  },
+  {
+    "agent": "AIYP",
+    "total_staked": "56,753,268"
+  },
+  {
+    "agent": "RAIN",
+    "total_staked": "55,694,043"
+  },
+  {
+    "agent": "SHEKEL",
+    "total_staked": "54,774,987"
+  },
+  {
+    "agent": "ACOLYT",
+    "total_staked": "54,713,449"
+  },
+  {
+    "agent": "EMILIA",
+    "total_staked": "51,721,978"
+  },
+  {
+    "agent": "AIXBT",
+    "total_staked": "47,591,914"
+  },
+  {
+    "agent": "BYTE",
+    "total_staked": "44,040,312"
+  },
+  {
+    "agent": "ROCKET",
+    "total_staked": "41,141,705"
+  },
+  {
+    "agent": "GENZAI",
+    "total_staked": "38,373,879"
+  },
+  {
+    "agent": "CV3AI",
+    "total_staked": "38,318,198"
+  },
+  {
+    "agent": "SERAPH",
+    "total_staked": "33,145,810"
+  },
+  {
+    "agent": "DTRXBT",
+    "total_staked": "28,110,748"
+  },
+  {
+    "agent": "SAINT",
+    "total_staked": "27,509,787"
+  },
+  {
+    "agent": "MAMO",
+    "total_staked": "26,927,143"
+  },
+  {
+    "agent": "WAKEAI",
+    "total_staked": "24,185,370"
+  },
+  {
+    "agent": "NOMAI",
+    "total_staked": "23,571,347"
+  },
+  {
+    "agent": "MONK",
+    "total_staked": "22,005,478"
+  },
+  {
+    "agent": "JAIHOZ",
+    "total_staked": "20,586,288"
+  },
+  {
+    "agent": "PH",
+    "total_staked": "19,543,648"
+  },
+  {
+    "agent": "SOVRN",
+    "total_staked": "16,897,284"
+  },
+  {
+    "agent": "RCAT",
+    "total_staked": "16,040,604"
+  },
+  {
+    "agent": "FUZZ",
+    "total_staked": "15,568,595"
+  },
+  {
+    "agent": "NOODS",
+    "total_staked": "13,183,713"
+  },
+  {
+    "agent": "GLUTEU",
+    "total_staked": "13,118,974"
+  },
+  {
+    "agent": "YOYO",
+    "total_staked": "12,963,734"
+  },
+  {
+    "agent": "TAOCAT",
+    "total_staked": "9,060,383"
+  },
+  {
+    "agent": "DESSAI",
+    "total_staked": "8,918,772"
+  },
+  {
+    "agent": "EVAL",
+    "total_staked": "8,672,500"
+  },
+  {
+    "agent": "VADER",
+    "total_staked": "8,384,585"
+  },
+  {
+    "agent": "VIBES",
+    "total_staked": "7,895,558"
+  },
+  {
+    "agent": "SAM",
+    "total_staked": "4,181,995"
+  },
+  {
+    "agent": "1000X",
+    "total_staked": "4,029,540"
+  },
+  {
+    "agent": "AIV",
+    "total_staked": "3,648,339"
+  },
+  {
+    "agent": "LYRA",
+    "total_staked": "2,455,787"
+  },
+  {
+    "agent": "G3",
+    "total_staked": "2,236,734"
+  },
+  {
+    "agent": "EFI",
+    "total_staked": "2,082,404"
+  },
+  {
+    "agent": "NEST",
+    "total_staked": "1,816,002"
+  },
+  {
+    "agent": "AVA",
+    "total_staked": "1,019,365"
+  },
+  {
+    "agent": "Samur",
+    "total_staked": 127.703
+  }
+]
