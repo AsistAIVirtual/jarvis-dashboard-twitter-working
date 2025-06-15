@@ -1,100 +1,79 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import greenLockData from '../data/greenLockData.json';
 
-const GreenLockPeriod = () => {
-  const [search, setSearch] = useState('');
+export default function GreenLockPeriod() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortOrder, setSortOrder] = useState(null);
   const [filter, setFilter] = useState('all');
-  const [sort, setSort] = useState('');
-  const [currentPage, setCurrentPage] = useState(0);
-  const perPage = 18;
+  const tokensPerPage = 9;
 
-  const filtered = greenLockData.filter((token) => {
-    const match = token.name.toLowerCase().includes(search.toLowerCase()) || token.ticker.toLowerCase().includes(search.toLowerCase());
-    const days = Number(token.baseUnlock);
-    const filterCheck = filter === 'under7' ? days < 7 : filter === 'under22' ? days < 22 : true;
-    return match && filterCheck;
-  });
+  const filteredTokens = greenLockData.filter(token => {
+    const today = new Date();
+    const launchDate = new Date(`${token.date}T${token.launchTime || "00:00"}`);
+    const timeDiff = launchDate.getTime() + token.baseUnlock * 24 * 60 * 60 * 1000 - today.getTime();
+    const daysLeft = Math.max(0, Math.ceil(timeDiff / (1000 * 60 * 60 * 24)));
+    token.daysLeft = daysLeft;
 
-  const sorted = [...filtered].sort((a, b) => {
-    if (sort === 'asc') return a.baseUnlock - b.baseUnlock;
-    if (sort === 'desc') return b.baseUnlock - a.baseUnlock;
+    if (filter === 'under7') return daysLeft <= 7;
+    if (filter === 'under22') return daysLeft <= 22;
+    return true;
+  }).filter(token =>
+    token.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    token.ticker.toLowerCase().includes(searchQuery.toLowerCase())
+  ).sort((a, b) => {
+    if (sortOrder === 'asc') return a.daysLeft - b.daysLeft;
+    if (sortOrder === 'desc') return b.daysLeft - a.daysLeft;
     return 0;
   });
 
-  const pageData = sorted.slice(currentPage * perPage, (currentPage + 1) * perPage);
-  const totalPages = Math.ceil(sorted.length / perPage);
-  const emptySlots = perPage - pageData.length;
-  const fillers = Array(emptySlots).fill(null);
+  const indexOfLastToken = currentPage * tokensPerPage;
+  const indexOfFirstToken = indexOfLastToken - tokensPerPage;
+  const currentTokens = filteredTokens.slice(indexOfFirstToken, indexOfLastToken);
+  const totalPages = Math.ceil(filteredTokens.length / tokensPerPage);
 
   return (
     <div className="p-4 text-white">
-      <div className="flex flex-wrap gap-2 justify-center mb-4">
+      <div className="flex flex-wrap gap-2 justify-between mb-4">
         <input
           type="text"
           placeholder="Search by name or ticker"
-          className="p-2 rounded bg-gray-800 text-white"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-            setCurrentPage(0);
-          }}
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+          className="px-2 py-1 text-black rounded"
         />
-        <select className="p-2 rounded bg-gray-800 text-white" value={filter} onChange={(e) => {
-          setFilter(e.target.value);
-          setCurrentPage(0);
-        }}>
-          <option value="all">All</option>
-          <option value="under7">Under 7 Days</option>
-          <option value="under22">Under 22 Days</option>
-        </select>
-        <select className="p-2 rounded bg-gray-800 text-white" value={sort} onChange={(e) => {
-          setSort(e.target.value);
-          setCurrentPage(0);
-        }}>
-          <option value="">No Sort</option>
-          <option value="asc">Unlocking Days Asc</option>
-          <option value="desc">Unlocking Days Desc</option>
-        </select>
+        <div className="flex gap-2">
+          <button onClick={() => setSortOrder('asc')} className="px-2 py-1 bg-gray-700 rounded">▲ Days</button>
+          <button onClick={() => setSortOrder('desc')} className="px-2 py-1 bg-gray-700 rounded">▼ Days</button>
+          <button onClick={() => setFilter('under7')} className="px-2 py-1 bg-green-700 rounded">Under 7 Days</button>
+          <button onClick={() => setFilter('under22')} className="px-2 py-1 bg-yellow-600 rounded">Under 22 Days</button>
+          <button onClick={() => setFilter('all')} className="px-2 py-1 bg-gray-500 rounded">All</button>
+        </div>
       </div>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-0 justify-items-center">
-        {pageData.map((token, index) => (
-          <div key={index}
-            className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-xl shadow p-3 w-[180px] min-h-[180px] flex flex-col items-center text-center"
-          >
-            <img src={token.image} alt={token.name} className="w-10 h-10 rounded-full mb-1" />
-            <div className="text-sm font-semibold">{token.name}</div>
-            <div className="text-xs text-gray-300 mb-1">Ticker: {token.ticker}</div>
-            <div className="text-xs">Unlock in: {token.baseUnlock} days</div>
-            <div className="text-xs">Participants: {token.participants}</div>
-            <div className="text-xs">Oversub: {token.oversub}</div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {currentTokens.map((token, index) => (
+          <div key={index} className="bg-white bg-opacity-10 backdrop-blur-md p-4 rounded shadow text-center">
+            <img src={token.image || `/images/${token.logo}`} alt={token.name} className="h-10 mx-auto mb-2" />
+            <h2 className="text-lg font-bold">{token.name}</h2>
+            <p className="text-sm text-gray-400">({token.ticker})</p>
+            <p className="mt-2 text-sm text-green-300">Unlocking in: {token.daysLeft} days</p>
+            <p className="text-sm text-gray-300">👥 Participants: {token.participants}</p>
+            <p className="text-sm text-gray-300">📊 Oversub: {token.oversub}</p>
           </div>
         ))}
-        {fillers.map((_, i) => (
-          <div key={`empty-${i}`} className="w-[180px] min-h-[180px] opacity-0 pointer-events-none" />
-        ))}
       </div>
-
-      <div className="flex justify-center mt-4 gap-4 items-center">
-        <button
-          className="px-4 py-2 bg-white/20 text-white rounded-lg backdrop-blur-md hover:bg-white/30 disabled:opacity-40"
-          disabled={currentPage === 0}
-          onClick={() => setCurrentPage((p) => p - 1)}
-        >
-          Previous
-        </button>
-        <span className="text-white text-sm">Page {currentPage + 1} / {totalPages}</span>
-        <button
-          className="px-4 py-2 bg-white/20 text-white rounded-lg backdrop-blur-md hover:bg-white/30 disabled:opacity-40"
-          disabled={currentPage >= totalPages - 1}
-          onClick={() => setCurrentPage((p) => p + 1)}
-        >
-          Next
-        </button>
+      <div className="flex justify-center mt-4 gap-2">
+        {[...Array(totalPages)].map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentPage(i + 1)}
+            className={`px-3 py-1 rounded ${currentPage === i + 1 ? 'bg-blue-600' : 'bg-gray-600'}`}
+          >
+            {i + 1}
+          </button>
+        ))}
       </div>
     </div>
   );
-};
+}
 
-export default GreenLockPeriod;
