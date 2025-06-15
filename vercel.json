@@ -1,8 +1,0 @@
-{
-    "jobs": [
-      {
-        "path": "api/updateGreenLockData",
-        "schedule": "0 21 * * *"
-      }
-    ]
-  }
