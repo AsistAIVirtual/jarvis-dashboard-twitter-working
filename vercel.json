@@ -1,5 +1,4 @@
 {
-  "cron": {
     "jobs": [
       {
         "path": "api/updateGreenLockData",
@@ -7,4 +6,3 @@
       }
     ]
   }
-}
