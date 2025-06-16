@@ -12,14 +12,20 @@ export default function GreenLockPeriod() {
   const [updatedData, setUpdatedData] = useState([]);
 
   useEffect(() => {
-    const now = new Date();
-    const updated = greenLockData.map(token => {
-      const launchDate = new Date(token.date);
-      const timeDiff = launchDate.getTime() - now.getTime();
-      const daysLeft = Math.max(0, Math.ceil(timeDiff / (1000 * 60 * 60 * 24)));
-      return { ...token, unlockingDays: daysLeft };
-    });
-    setUpdatedData(updated);
+    const calculateDaysLeft = () => {
+      const now = new Date();
+      const updated = greenLockData.map(token => {
+        const launchDate = new Date(token.date);
+        const timeDiff = launchDate.getTime() - now.getTime();
+        const daysLeft = Math.max(0, Math.ceil(timeDiff / (1000 * 60 * 60 * 24)));
+        return { ...token, unlockingDays: daysLeft };
+      });
+      setUpdatedData(updated);
+    };
+
+    calculateDaysLeft();
+    const interval = setInterval(calculateDaysLeft, 1000 * 60 * 60); // her saat başı güncelle
+    return () => clearInterval(interval);
   }, []);
 
   const filteredData = updatedData
