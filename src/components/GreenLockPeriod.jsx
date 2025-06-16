@@ -14,7 +14,7 @@ export default function GreenLockPeriod() {
   useEffect(() => {
     const now = new Date();
     const updated = greenLockData.map(token => {
-      const launchDate = new Date(token.launchDate);
+      const launchDate = new Date(token.date);
       const timeDiff = launchDate.getTime() - now.getTime();
       const daysLeft = Math.max(0, Math.ceil(timeDiff / (1000 * 60 * 60 * 24)));
       return { ...token, unlockingDays: daysLeft };
