@@ -9,15 +9,20 @@ export default function GreenLockPeriod() {
   const [filterOption, setFilterOption] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const tokensPerPage = 9;
+  const [updatedData, setUpdatedData] = useState([]);
 
-  const filteredData = greenLockData
-    .map(token => {
-      const remainingDays = Math.max(
-        0,
-        Math.ceil((new Date(token.launchDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24))
-      );
-      return { ...token, unlockingDays: remainingDays };
-    })
+  useEffect(() => {
+    const now = new Date();
+    const updated = greenLockData.map(token => {
+      const launchDate = new Date(token.launchDate);
+      const timeDiff = launchDate.getTime() - now.getTime();
+      const daysLeft = Math.max(0, Math.ceil(timeDiff / (1000 * 60 * 60 * 24)));
+      return { ...token, unlockingDays: daysLeft };
+    });
+    setUpdatedData(updated);
+  }, []);
+
+  const filteredData = updatedData
     .filter(token =>
       token.name.toLowerCase().includes(search.toLowerCase()) ||
       token.ticker.toLowerCase().includes(search.toLowerCase())
