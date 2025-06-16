@@ -176,6 +176,26 @@
     "ticker": "MONO"  
 },
   {
+    "name": "bAIbysitter",
+    "ticker": "BAIBY"
+},
+  {
+    "name": "PrimoAI",
+    "ticker": "PRIMO"  
+},
+  {
+    "name": "MAFIA AI",
+    "ticker": "MAFIA"  
+},
+  {
+    "name": "Agentik DEX",
+    "ticker": "AGENTIK"  
+},
+  {
+    "name": "ELYTRA",
+    "ticker": "ELYTRA"  
+},
+  {
     "name": "STAKE",
     "ticker": "STAKE"     
   }
