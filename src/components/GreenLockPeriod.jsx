@@ -15,8 +15,10 @@ export default function GreenLockPeriod() {
     const calculateDaysLeft = () => {
       const now = new Date();
       const updated = greenLockData.map(token => {
-        const launchDate = new Date(token.date.replace(/\//g, '-'));
-        if (isNaN(launchDate)) {
+        const rawDate = token.date.replace(/\//g, '-');
+        const launchDate = new Date(rawDate);
+        
+        if (isNaN(launchDate.getTime())) {
           return { ...token, unlockingDays: 0 };
         }
         const utcLaunchDate = Date.UTC(launchDate.getFullYear(), launchDate.getMonth(), launchDate.getDate());
