@@ -1,0 +1,21 @@
+
+[
+  {
+    "name": "Token A",
+    "ticker": "TKA",
+    "date": "2025-06-20",
+    "launchTime": "14:00",
+    "participants": 300,
+    "oversub": "220%",
+    "image": "/images/tka.png"
+  },
+  {
+    "name": "Token B",
+    "ticker": "TKB",
+    "date": "2025-06-22",
+    "launchTime": "18:30",
+    "participants": 120,
+    "oversub": "115%",
+    "image": "/images/tkb.png"
+  }
+]
