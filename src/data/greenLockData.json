@@ -182,8 +182,8 @@
   {
     "name": "Super Connector",
     "ticker": "SUPER",
-    "baseUnlock": 5,
-    "date": "2025-06-11",
+    "baseUnlock": 30,
+    "date": "2025-06-16",
     "image": "/images/super.png",
     "participants": "2,496",
     "oversub": "523.33%",
