@@ -16,8 +16,12 @@ export default function GreenLockPeriod() {
       const now = new Date();
       const updated = greenLockData.map(token => {
         const launchDate = new Date(token.date);
-        const timeDiff = launchDate.getTime() - now.getTime();
-        const daysLeft = Math.max(0, Math.ceil(timeDiff / (1000 * 60 * 60 * 24)));
+        if (isNaN(launchDate)) {
+          return { ...token, unlockingDays: 0 };
+        }
+        const utcLaunchDate = Date.UTC(launchDate.getFullYear(), launchDate.getMonth(), launchDate.getDate());
+        const utcNow = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+        const daysLeft = Math.max(0, Math.floor((utcLaunchDate - utcNow) / (1000 * 60 * 60 * 24)));
         return { ...token, unlockingDays: daysLeft };
       });
       setUpdatedData(updated);
@@ -95,3 +99,4 @@ export default function GreenLockPeriod() {
     </div>
   );
 }
+
