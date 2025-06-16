@@ -6,26 +6,37 @@ export default function GreenLockPeriod() {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortOrder, setSortOrder] = useState(null);
   const [filter, setFilter] = useState('all');
+  const [updatedTokens, setUpdatedTokens] = useState([]);
+
   const tokensPerPage = 9;
 
-  const filteredTokens = greenLockData.filter(token => {
+  useEffect(() => {
     const today = new Date();
-    const launchDate = new Date(`${token.date}T${token.launchTime || "00:00"}`);
-    const timeDiff = launchDate.getTime() + token.baseUnlock * 24 * 60 * 60 * 1000 - today.getTime();
-    const daysLeft = Math.max(0, Math.ceil(timeDiff / (1000 * 60 * 60 * 24)));
-    token.daysLeft = daysLeft;
+    const updated = greenLockData.map(token => {
+      const launchDate = new Date(`${token.date}T${token.launchTime || "00:00"}`);
+      const unlockDate = new Date(launchDate.getTime() + token.baseUnlock * 24 * 60 * 60 * 1000);
+      const diffTime = unlockDate - today;
+      const daysLeft = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
+      return { ...token, daysLeft };
+    });
+    setUpdatedTokens(updated);
+  }, []);
 
-    if (filter === 'under7') return daysLeft <= 7;
-    if (filter === 'under22') return daysLeft <= 22;
-    return true;
-  }).filter(token =>
-    token.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    token.ticker.toLowerCase().includes(searchQuery.toLowerCase())
-  ).sort((a, b) => {
-    if (sortOrder === 'asc') return a.daysLeft - b.daysLeft;
-    if (sortOrder === 'desc') return b.daysLeft - a.daysLeft;
-    return 0;
-  });
+  const filteredTokens = updatedTokens
+    .filter(token => {
+      if (filter === 'under7') return token.daysLeft <= 7;
+      if (filter === 'under22') return token.daysLeft <= 22;
+      return true;
+    })
+    .filter(token =>
+      token.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      token.ticker.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    .sort((a, b) => {
+      if (sortOrder === 'asc') return a.daysLeft - b.daysLeft;
+      if (sortOrder === 'desc') return b.daysLeft - a.daysLeft;
+      return 0;
+    });
 
   const indexOfLastToken = currentPage * tokensPerPage;
   const indexOfFirstToken = indexOfLastToken - tokensPerPage;
@@ -53,7 +64,7 @@ export default function GreenLockPeriod() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {currentTokens.map((token, index) => (
           <div key={index} className="bg-white bg-opacity-10 backdrop-blur-md p-4 rounded shadow text-center">
-            <img src={token.image || `/images/${token.logo}`} alt={token.name} className="h-10 mx-auto mb-2" />
+            <img src={token.image} alt={token.name} className="h-10 mx-auto mb-2" />
             <h2 className="text-lg font-bold">{token.name}</h2>
             <p className="text-sm text-gray-400">({token.ticker})</p>
             <p className="mt-2 text-sm text-green-300">Unlocking in: {token.daysLeft} days</p>
@@ -76,4 +87,3 @@ export default function GreenLockPeriod() {
     </div>
   );
 }
-
