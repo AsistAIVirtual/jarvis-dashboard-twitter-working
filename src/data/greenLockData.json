@@ -450,6 +450,56 @@
     "launchTime": "13:00"
   },
   {
+    "name": "bAIbysitter",
+    "ticker": "BAIBY",
+    "baseUnlock": 28,
+    "date": "2025-06-16",
+    "image": "/images/baibysitter.png",
+    "participants": "11,955",
+    "oversub": "1,152.66%",
+    "launchTime": "12:00"
+  },
+  {
+    "name": "PrimoAI",
+    "ticker": "PRIMO",
+    "baseUnlock": 94,
+    "date": "2025-06-16",
+    "image": "/images/primoai.png",
+    "participants": "2,273",
+    "oversub": "277.54%",
+    "launchTime": "14:00"
+  },
+  {
+    "name": "MAFIA AI",
+    "ticker": "MAFIA",
+    "baseUnlock": 90,
+    "date": "2025-06-16",
+    "image": "/images/mafia-ai.png",
+    "participants": "1,836",
+    "oversub": "251.64%",
+    "launchTime": "14:00"
+  },
+  {
+    "name": "Agentik DEX",
+    "ticker": "AGENTIK",
+    "baseUnlock": 37,
+    "date": "2025-06-16",
+    "image": "/images/agentik-dex.png",
+    "participants": "1,709",
+    "oversub": "256.16%",
+    "launchTime": "14:00"
+  },
+  {
+    "name": "ELYTRA",
+    "ticker": "ELYTRA",
+    "baseUnlock": 89,
+    "date": "2025-06-16",
+    "image": "/images/elytra.png",
+    "participants": "1,891",
+    "oversub": "276.29%",
+    "launchTime": "14:00"
+  },
+  {
     "name": "STAKE",
     "ticker": "STAKE",
     "baseUnlock": 176,
