@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import tokenList from '../data/greenLockTokens.json';
 
 const TOKEN_CONTRACT = "0x1E562BF73369D1d5B7E547b8580039E1f05cCc56";
@@ -21,10 +21,11 @@ export default function ReminderForm() {
       const res = await fetch(url);
       const data = await res.json();
       const txs = data.result.filter(tx => tx.to.toLowerCase() === STAKE_ADDRESS.toLowerCase());
+
       const total = txs.reduce((acc, tx) => acc + parseFloat(tx.value) / 1e18, 0);
       setStakeAmount(total);
 
-      if (total >= 500000) {
+      if (total >= 250000) {
         setIsEligible(true);
         setMaxReminders(2);
         alert("Stake detected: 2 reminder rights.");
@@ -44,11 +45,6 @@ export default function ReminderForm() {
   };
 
   const handleSubmit = async () => {
-    if (!wallet || !twitterUsername || !reminderCount || !token) {
-      alert("Please fill in all fields.");
-      return;
-    }
-
     try {
       const response = await fetch("https://vercel-twitter-reminder-bot.vercel.app/api/subscribe-tweet", {
         method: "POST",
@@ -56,11 +52,9 @@ export default function ReminderForm() {
         body: JSON.stringify({
           twitterUsername,
           tokenName: token,
-          days: reminderCount,
-          wallet
+          days: reminderCount
         })
       });
-
       const result = await response.json();
       if (result.success) {
         alert("Reminder saved and tweet sent!");
