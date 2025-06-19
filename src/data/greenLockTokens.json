@@ -197,6 +197,26 @@
 },
   {
     "name": "STAKE",
-    "ticker": "STAKE"     
+    "ticker": "STAKE"  
+},
+  {
+    "name": "STRATOS",
+    "ticker": "STRATOS"
+},
+  {
+    "name": "Agent Father",
+    "ticker": "AFATH"
+},
+  {
+    "name": "PitchPilot",
+    "ticker": "PILOT"
+},
+  {
+    "name": "Cybercentry",
+    "ticker": "CENTRY"
+},
+  {
+    "name": "Backroom",
+    "ticker": "ROOM"
   }
 ]
