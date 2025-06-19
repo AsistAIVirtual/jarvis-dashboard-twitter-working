@@ -1,23 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import greenLockTokens from "../data/greenLockTokens.json";
 
 export default function ReminderForm() {
   const [wallet, setWallet] = useState("");
   const [twitterUsername, setTwitterUsername] = useState("");
   const [token, setToken] = useState("");
   const [reminderCount, setReminderCount] = useState("");
+  const [tokenOptions, setTokenOptions] = useState([]);
+
+  useEffect(() => {
+    const tickers = greenLockTokens.map((t) => t.Ticker);
+    setTokenOptions(tickers);
+  }, []);
 
   const handleSubmit = async () => {
     if (!wallet || !twitterUsername || !token || !reminderCount) {
-      alert("Lütfen tüm alanları doldurun.");
+      alert("Please fill in all fields.");
       return;
     }
 
     try {
       const response = await fetch("https://vercel-twitter-reminder-bot.vercel.app/api/subscribe-tweet", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           wallet,
           twitterUsername,
@@ -42,27 +47,36 @@ export default function ReminderForm() {
   return (
     <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
       <h2 className="text-xl font-semibold mb-4">Subscribe Unlock Period</h2>
+
       <input
         type="text"
-        placeholder="Enter your wallet address"
+        placeholder="Enter wallet address"
         className="w-full px-4 py-2 mb-3 border rounded"
         value={wallet}
         onChange={(e) => setWallet(e.target.value)}
       />
+
       <input
         type="text"
-        placeholder="Enter your Twitter username"
+        placeholder="Enter Twitter username"
         className="w-full px-4 py-2 mb-3 border rounded"
         value={twitterUsername}
         onChange={(e) => setTwitterUsername(e.target.value)}
       />
-      <input
-        type="text"
-        placeholder="Enter token name"
+
+      <select
         className="w-full px-4 py-2 mb-3 border rounded"
         value={token}
         onChange={(e) => setToken(e.target.value)}
-      />
+      >
+        <option value="">Select token</option>
+        {tokenOptions.map((ticker, index) => (
+          <option key={index} value={ticker}>
+            {ticker}
+          </option>
+        ))}
+      </select>
+
       <input
         type="number"
         placeholder="Remind in how many days?"
@@ -70,6 +84,7 @@ export default function ReminderForm() {
         value={reminderCount}
         onChange={(e) => setReminderCount(e.target.value)}
       />
+
       <button
         className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
         onClick={handleSubmit}
