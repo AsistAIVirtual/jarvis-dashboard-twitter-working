@@ -74,17 +74,17 @@ const ReminderForm = () => {
 
       <div className="mb-2">
         <label className="block text-sm font-medium">Wallet Address</label>
-        <input value={wallet} onChange={(e) => setWallet(e.target.value)} className="w-full border px-2 py-1" />
+        <input value={wallet} onChange={(e) => setWallet(e.target.value)} className="w-full border px-2 py-1 bg-white text-black" />
       </div>
 
       <div className="mb-2">
         <label className="block text-sm font-medium">Enter X Username</label>
-        <input value={twitterUsername} onChange={(e) => setTwitterUsername(e.target.value)} className="w-full border px-2 py-1" />
+        <input value={twitterUsername} onChange={(e) => setTwitterUsername(e.target.value)} className="w-full border px-2 py-1 bg-white text-black" />
       </div>
 
       <div className="mb-2">
         <label className="block text-sm font-medium">Token</label>
-        <select value={selectedToken} onChange={(e) => setSelectedToken(e.target.value)} className="w-full border px-2 py-1">
+        <select value={selectedToken} onChange={(e) => setSelectedToken(e.target.value)} className="w-full border px-2 py-1 bg-white text-black">
           <option value="">Select token</option>
           {greenLockTokens.map((token) => (
             <option key={token.Ticker} value={token.Ticker}>{token.Ticker}</option>
@@ -94,7 +94,7 @@ const ReminderForm = () => {
 
       <div className="mb-2">
         <label className="block text-sm font-medium">Days Before Unlock</label>
-        <input type="number" value={days} onChange={(e) => setDays(e.target.value)} className="w-full border px-2 py-1" />
+        <input type="number" value={days} onChange={(e) => setDays(e.target.value)} className="w-full border px-2 py-1 bg-white text-black" />
       </div>
 
       <div className="flex items-center space-x-4 my-2">
