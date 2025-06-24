@@ -44,7 +44,7 @@
     "ticker": "MAGNUS",
     "baseUnlock": 16,
     "date": "2025-06-11",
-    "image": "/images/magnus.png",
+    "image": "/images/magnus-opus.png",
     "participants": "5,640",
     "oversub": "827.45%",
     "launchTime": "13:00"
@@ -74,7 +74,7 @@
     "ticker": "MELLO",
     "baseUnlock": 82,
     "date": "2025-06-11",
-    "image": "/images/melloai.png",
+    "image": "/images/mello-ai.png",
     "participants": "1,893",
     "oversub": "326.32%",
     "launchTime": "13:00"
@@ -154,7 +154,7 @@
     "ticker": "MANEKI",
     "baseUnlock": 8,
     "date": "2025-06-11",
-    "image": "/images/manekiai.png",
+    "image": "/images/maneki-ai.png",
     "participants": "4,929",
     "oversub": "938.98%",
     "launchTime": "13:00"
@@ -182,9 +182,9 @@
   {
     "name": "Super Connector",
     "ticker": "SUPER",
-    "baseUnlock": 5,
-    "date": "2025-06-11",
-    "image": "/images/super.png",
+    "baseUnlock": 30,
+    "date": "2025-06-16",
+    "image": "/images/super-connector.png",
     "participants": "2,496",
     "oversub": "523.33%",
     "launchTime": "13:00"
@@ -204,7 +204,7 @@
     "ticker": "GPTWAI",
     "baseUnlock": 92,
     "date": "2025-06-11",
-    "image": "/images/gptwarsai.png",
+    "image": "/images/gptwars-ai.png",
     "participants": "3,483",
     "oversub": "783.81%",
     "launchTime": "13:00"
@@ -224,7 +224,7 @@
     "ticker": "LIGHT",
     "baseUnlock": 113,
     "date": "2025-06-11",
-    "image": "/images/arcturian.png",
+    "image": "/images/arcturian-ai.png",
     "participants": "878",
     "oversub": "314.47%",
     "launchTime": "13:00"
@@ -450,6 +450,56 @@
     "launchTime": "13:00"
   },
   {
+    "name": "bAIbysitter",
+    "ticker": "BAIBY",
+    "baseUnlock": 28,
+    "date": "2025-06-16",
+    "image": "/images/baibysitter.png",
+    "participants": "11,955",
+    "oversub": "1,152.66%",
+    "launchTime": "12:00"
+  },
+  {
+    "name": "PrimoAI",
+    "ticker": "PRIMO",
+    "baseUnlock": 94,
+    "date": "2025-06-16",
+    "image": "/images/primoai.png",
+    "participants": "2,273",
+    "oversub": "277.54%",
+    "launchTime": "14:00"
+  },
+  {
+    "name": "MAFIA AI",
+    "ticker": "MAFIA",
+    "baseUnlock": 90,
+    "date": "2025-06-16",
+    "image": "/images/mafia-ai.png",
+    "participants": "1,836",
+    "oversub": "251.64%",
+    "launchTime": "14:00"
+  },
+  {
+    "name": "Agentik DEX",
+    "ticker": "AGENTIK",
+    "baseUnlock": 37,
+    "date": "2025-06-16",
+    "image": "/images/agentik-dex.png",
+    "participants": "1,709",
+    "oversub": "256.16%",
+    "launchTime": "14:00"
+  },
+  {
+    "name": "ELYTRA",
+    "ticker": "ELYTRA",
+    "baseUnlock": 89,
+    "date": "2025-06-16",
+    "image": "/images/elytra.png",
+    "participants": "1,891",
+    "oversub": "276.29%",
+    "launchTime": "14:00"
+  },
+  {
     "name": "STAKE",
     "ticker": "STAKE",
     "baseUnlock": 176,
@@ -458,5 +508,105 @@
     "participants": "845",
     "oversub": "196.35%",
     "launchTime": "13:00"
+  },
+  {
+    "name": "STRATOS",
+    "ticker": "STRATOS",
+    "baseUnlock": 27,
+    "date": "2025-06-19",
+    "image": "/images/stratos.png",
+    "participants": "5,387",
+    "oversub": "742.91%",
+    "launchTime": "15:00"
+  },
+  {
+    "name": "Agent Father",
+    "ticker": "AFATH",
+    "baseUnlock": 17,
+    "date": "2025-06-19",
+    "image": "/images/agent-father.png",
+    "participants": "595",
+    "oversub": "118.73%",
+    "launchTime": "23:00"
+  },
+  {
+    "name": "PitchPilot",
+    "ticker": "PILOT",
+    "baseUnlock": 31,
+    "date": "2025-06-19",
+    "image": "/images/pitchpilot.png",
+    "participants": "3,718",
+    "oversub": "474.43%",
+    "launchTime": "18:00"
+  },
+  {
+    "name": "Cybercentry",
+    "ticker": "CENTRY",
+    "baseUnlock": 181,
+    "date": "2025-06-19",
+    "image": "/images/cybercentry.png",
+    "participants": "2,320",
+    "oversub": "324.57%",
+    "launchTime": "15:00"
+  },
+  {
+    "name": "Backroom",
+    "ticker": "ROOM",
+    "baseUnlock": 34,
+    "date": "2025-06-19",
+    "image": "/images/backroom.png",
+    "participants": "13,164",
+    "oversub": "1,909.64%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "Songjam",
+    "ticker": "SANG",
+    "baseUnlock": 26,
+    "date": "2025-06-23",
+    "image": "/images/songjam.png",
+    "participants": "1,441",
+    "oversub": "183.04%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "Sovra AI",
+    "ticker": "SOVRA",
+    "baseUnlock": 24,
+    "date": "2025-06-23",
+    "image": "/images/sovra-ai.png",
+    "participants": "877",
+    "oversub": "130.26%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "REI AI",
+    "ticker": "REI",
+    "baseUnlock": 28,
+    "date": "2025-06-23",
+    "image": "/images/rei-ai.png",
+    "participants": "804",
+    "oversub": "124.30%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "xKnown ai",
+    "ticker": "XKNOWN",
+    "baseUnlock": 118,
+    "date": "2025-06-23",
+    "image": "/images/xknown-ai.png",
+    "participants": "1,200",
+    "oversub": "183.85%",
+    "launchTime": "17:00"
+     },
+  {
+    "name": "Crazzers AI",
+    "ticker": "CRAZZERS",
+    "baseUnlock": 61,
+    "date": "2025-06-24",
+    "image": "/images/crazzers-ai.png",
+    "participants": "3,581",
+    "oversub": "388.83%",
+    "launchTime": "17:00"
   }
 ]

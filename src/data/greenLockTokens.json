@@ -176,7 +176,67 @@
     "ticker": "MONO"  
 },
   {
+    "name": "bAIbysitter",
+    "ticker": "BAIBY"
+},
+  {
+    "name": "PrimoAI",
+    "ticker": "PRIMO"  
+},
+  {
+    "name": "MAFIA AI",
+    "ticker": "MAFIA"  
+},
+  {
+    "name": "Agentik DEX",
+    "ticker": "AGENTIK"  
+},
+  {
+    "name": "ELYTRA",
+    "ticker": "ELYTRA"  
+},
+  {
     "name": "STAKE",
-    "ticker": "STAKE"     
+    "ticker": "STAKE"  
+},
+  {
+    "name": "STRATOS",
+    "ticker": "STRATOS"
+},
+  {
+    "name": "Agent Father",
+    "ticker": "AFATH"
+},
+  {
+    "name": "PitchPilot",
+    "ticker": "PILOT"
+},
+  {
+    "name": "Cybercentry",
+    "ticker": "CENTRY"
+},
+  {
+    "name": "Backroom",
+    "ticker": "ROOM"
+},
+  {
+    "name": "Songjam",
+    "ticker": "SANG"
+    },
+  {
+    "name": "Sovra AI",
+    "ticker": "SOVRA"
+    },
+  {
+    "name": "REI AI",
+    "ticker": "REI"
+    },
+  {
+    "name": "xKnown ai",
+    "ticker": "XKNOWN"
+    },
+  {
+    "name": "Crazzers AI",
+    "ticker": "CRAZZERS"
   }
 ]

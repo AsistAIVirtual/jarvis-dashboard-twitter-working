@@ -4,7 +4,7 @@ import tokenList from '../data/greenLockTokens.json';
 const TOKEN_CONTRACT = "0x1E562BF73369D1d5B7E547b8580039E1f05cCc56";
 const STAKE_ADDRESS = "0xa72fB1A92A1489a986fE1d27573F4F6a1bA83dBe";
 const BASESCAN_API = "https://api.basescan.org/api";
-const API_KEY = "${process.env.REACT_APP_BASESCAN_API_KEY}";
+const API_KEY = "MA9MEETHKKBPXMBKSGRYE4E6CBIERXS3EJ";
 
 export default function ReminderForm() {
   const [wallet, setWallet] = useState('');
@@ -52,11 +52,16 @@ export default function ReminderForm() {
         body: JSON.stringify({
           twitterUsername,
           tokenName: token,
-          days: reminderCount
+          days: reminderCount,
+          wallet,
+          stakeAmount
         })
       });
       const result = await response.json();
-      if (result.success) {
+
+      if (result.error === "limit_reached") {
+        alert(result.message || "Reminder limit reached.");
+      } else if (result.success) {
         alert("Reminder saved and tweet sent!");
       } else {
         alert("Error: " + result.error);

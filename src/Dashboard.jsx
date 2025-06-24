@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import ReminderForm from './components/ReminderForm';
 import DailyVolume from './components/DailyVolume';
 import GreenLockPeriod from './components/GreenLockPeriod';
+import GenesisStaking from './components/GenesisStaking'; // ✅ Yeni eklenen import
 
 export default function Dashboard() {
   const [jarvisPrice, setJarvisPrice] = useState(null);
@@ -39,7 +40,6 @@ export default function Dashboard() {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        {/* Ortalanmış yazı */}
         <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-gray-200 text-base italic font-bold z-10">
           Just A Rather Virgen Intelligent System (J.A.R.V.I.S.)
         </div>
@@ -81,8 +81,7 @@ export default function Dashboard() {
             <button onClick={() => setShowSection('dailyVolume')} className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg shadow">Daily Volume</button>
             <button onClick={() => setShowSection('greenLock')} className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg shadow">Green Lock Period</button>
             <button onClick={() => setShowSection('subscribeUnlock')} className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg shadow">Subscribe Unlock Period</button>
-            <button className="bg-gray-700 text-white px-4 py-2 rounded-lg shadow cursor-not-allowed opacity-50">Agent Market (coming soon)</button>
-            <button onClick={() => setShowSection('stakedAgents')} className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg shadow">Total Staked Agents</button>
+            <button onClick={() => setShowSection('genesisStaking')} className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg shadow">Genesis Staking</button>
           </div>
         </div>
 
@@ -90,8 +89,7 @@ export default function Dashboard() {
           {showSection === 'dailyVolume' && <DailyVolume />}
           {showSection === 'greenLock' && <GreenLockPeriod />}
           {showSection === 'subscribeUnlock' && <ReminderForm />}
-          {showSection === 'agentMarket' && <p className="text-center">🤖 Agent Market section coming soon</p>}
-          {showSection === 'stakedAgents' && <p className="text-center">📈 Total Staked Agents info will be shown here</p>}
+          {showSection === 'genesisStaking' && <GenesisStaking />}
         </div>
       </div>
     </>
