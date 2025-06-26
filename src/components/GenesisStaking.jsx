@@ -36,7 +36,7 @@ const GenesisStaking = () => {
         } catch (err) {
           results.push({ ...token, staked: "-", percent: "-", numericStaked: 0 });
         }
-        if ((results.length % 5) === 0) await new Promise(r => setTimeout(r, 1100));
+        if ((results.length % 2) === 0) await new Promise(r => setTimeout(r, 1000));
       }
 
       setRawData(results);
