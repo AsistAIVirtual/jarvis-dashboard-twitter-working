@@ -62,5 +62,7 @@ export const tokenList = [
   { tokenName: "WhaleIntel", ticker: "WINT", stakeContract: "0x9bB126f509f2c458B408fD70E75598a2AD361168", tokenAddress: "0xdf2Fd7Dd75143a5010F145440d49748275e362a3", imageFile: "whaleintel.png" },
   { tokenName: "AskTianAI", ticker: "TIAN", stakeContract: "0x43771F8D312120B61bB54E9fA98d3F5A35933803", tokenAddress: "0x795ABCB2A9901F6EC510e18D40de08B84628c354", imageFile: "asktianai.png" },
   { tokenName: "PILOT3", ticker: "PTAI", stakeContract: "0x3Fd3749c8d427b2B3035E381e7a6Bbb37fBa3BE3", tokenAddress: "0x61BebCe04b9bD9bc333127B7058bB5458b3421E6", imageFile: "pilot3.png" },
-  { tokenName: "Crazzers", ticker: "CRAZZERS", stakeContract: "0xD2626a8408E13a364130BF25495ce242d30f4721", tokenAddress: "0x6127A37AC7dBC69C3A9993F56D0F71c6D022E6A3", imageFile: "crazzers-ai.png" }
+  { tokenName: "Crazzers", ticker: "CRAZZERS", stakeContract: "0xD2626a8408E13a364130BF25495ce242d30f4721", tokenAddress: "0x6127A37AC7dBC69C3A9993F56D0F71c6D022E6A3", imageFile: "crazzers-ai.png" },
+  { tokenName: "WachXBT", ticker: "WACH", stakeContract: "0x04284bB37c55073053360301F520Fb68fb6892a2", tokenAddress: "0xCC9AD02796deC5f4f0710df80C1f011AF85eb9E1", imageFile: "wachxbt.png" },
+  { tokenName: "Legend", ticker: "LEGEND", stakeContract: "0x778c268879eA24c2B3c356E9b0d93E73f9d3E33F", tokenAddress: "0xaAA9A3bC81FE7951fE0c3755837b40749ce0c894", imageFile: "legend.png" }
 ];

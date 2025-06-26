@@ -238,5 +238,13 @@
   {
     "name": "Crazzers AI",
     "ticker": "CRAZZERS"
+    },
+  {
+    "name": "WachXBT",
+    "ticker": "WACH"
+    },
+  {
+    "name": "Legend",
+    "ticker": "LEGEND"
   }
 ]

@@ -608,5 +608,25 @@
     "participants": "3,581",
     "oversub": "388.83%",
     "launchTime": "17:00"
+     },
+  {
+    "name": "WachXBT",
+    "ticker": "WACH",
+    "baseUnlock": 89,
+    "date": "2025-06-26",
+    "image": "/images/wachxbt.png",
+    "participants": "14,488",
+    "oversub": "1,352.96%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "Legend",
+    "ticker": "LEGEND",
+    "baseUnlock": 29,
+    "date": "2025-06-27",
+    "image": "/images/legend.png",
+    "participants": "5,910",
+    "oversub": "450.28%",
+    "launchTime": "17:00"
   }
 ]
