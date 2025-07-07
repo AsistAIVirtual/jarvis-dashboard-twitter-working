@@ -628,5 +628,115 @@
     "participants": "5,910",
     "oversub": "450.28%",
     "launchTime": "17:00"
+    },
+  {
+    "name": "Daredevil",
+    "ticker": "DARE",
+    "baseUnlock": 23,
+    "date": "2025-07-07",
+    "image": "/images/daredevil.png",
+    "participants": "1,978",
+    "oversub": "255.54%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "Taskly AI",
+    "ticker": "TSK",
+    "baseUnlock": 6,
+    "date": "2025-07-07",
+    "image": "/images/taskly-ai.png",
+    "participants": "2,509",
+    "oversub": "263.39%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "Barvis",
+    "ticker": "BARVIS",
+    "baseUnlock": 14,
+    "date": "2025-07-07",
+    "image": "/images/barvis.png",
+    "participants": "4,466",
+    "oversub": "324.06%",
+    "launchTime": "17:00"
+   },
+  {
+    "name": "BM Finance",
+    "ticker": "MONEY",
+    "baseUnlock": 86,
+    "date": "2025-07-07",
+    "image": "/images/bm-finance.png",
+    "participants": "5,082",
+    "oversub": "462.31%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "Fetchr",
+    "ticker": "FETCHR",
+    "baseUnlock": 15,
+    "date": "2025-07-07",
+    "image": "/images/fetchr.png",
+    "participants": "1,457",
+    "oversub": "217.17%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "SPY AI AGENT",
+    "ticker": "SPYAI",
+    "baseUnlock": 25,
+    "date": "2025-07-07",
+    "image": "/images/spy-ai-agent.png",
+    "participants": "572",
+    "oversub": "132.43%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "EVA",
+    "ticker": "EVA",
+    "baseUnlock": 24,
+    "date": "2025-07-07",
+    "image": "/images/eva.png",
+    "participants": "12,898",
+    "oversub": "732.63%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "SPREDD Forecast Markets",
+    "ticker": "SPRDD",
+    "baseUnlock": 57,
+    "date": "2025-07-07",
+    "image": "/images/spredd-forecast-markets.png",
+    "participants": "1,650",
+    "oversub": "232.58%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "GoHacker AI",
+    "ticker": "BUIDL",
+    "baseUnlock": 53,
+    "date": "2025-07-07",
+    "image": "/images/gohacker-ai.png",
+    "participants": "2,100",
+    "oversub": "310.75%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "Lily Turner The First NSFW AI Agent",
+    "ticker": "LILY",
+    "baseUnlock": 22,
+    "date": "2025-07-07",
+    "image": "/images/lily-turner",
+    "participants": "4,239",
+    "oversub": "468.75%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "Z A I A by KinkyBunny",
+    "ticker": "KBT",
+    "baseUnlock": 29,
+    "date": "2025-07-07",
+    "image": "/images/z-a-i-a.png",
+    "participants": "1,801",
+    "oversub": "216.18%",
+    "launchTime": "17:00"
   }
 ]

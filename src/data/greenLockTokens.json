@@ -246,5 +246,49 @@
   {
     "name": "Legend",
     "ticker": "LEGEND"
+    },
+  {
+    "name": "Daredevil",
+    "ticker": "DARE"
+    },
+  {
+    "name": "Barvis",
+    "ticker": "BARVIS"
+    },
+  {
+    "name": "Taskly AI",
+    "ticker": "TSK"
+    },
+  {
+    "name": "BM Finance",
+    "ticker": "MONEY"
+    },
+  {
+    "name": "Fetchr",
+    "ticker": "FETCHR"
+    },
+  {
+    "name": "SPY AI AGENT",
+    "ticker": "SPYAI"
+    },
+  {
+    "name": "EVA",
+    "ticker": "EVA"
+    },
+  {
+    "name": "SPREDD Forecast Markets",
+    "ticker": "SPRDD"
+    },
+  {
+    "name": "GoHacker AI",
+    "ticker": "BUIDL"
+    },
+  {
+    "name": "Lily Turner",
+    "ticker": "LİLY"
+    },
+  {
+    "name": "Z A I A by KinkyBunny",
+    "ticker": "KBT"
   }
 ]
