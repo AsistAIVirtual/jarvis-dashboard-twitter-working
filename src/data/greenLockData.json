@@ -738,9 +738,9 @@
     "participants": "1,801",
     "oversub": "216.18%",
     "launchTime": "17:00"
-  },
+    },
   {
-"name": "BUY",
+    "name": "BUY",
     "ticker": "BUY",
     "baseUnlock": 14,
     "date": "2025-07-31",
