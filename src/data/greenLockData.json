@@ -739,4 +739,184 @@
     "oversub": "216.18%",
     "launchTime": "17:00"
   }
+  {    
+"name": "BUY",
+    "ticker": "BUY",
+    "baseUnlock": 14,
+    "date": "2025-07-31",
+    "image": "/images/buy.png",
+    "participants": "818",
+    "oversub": "128.77%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "AIBRK",
+    "ticker": "AIBRK",
+    "baseUnlock": 18,
+    "date": "2025-07-31",
+    "image": "/images/aibrk.png",
+    "participants": "887",
+    "oversub": "182.51%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "ModelGuard",
+    "ticker": "GUARD",
+    "baseUnlock": 16,
+    "date": "2025-07-31",
+    "image": "/images/modelguard.png",
+    "participants": "4,882",
+    "oversub": "270.64%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "Flyte AI",
+    "ticker": "FLYTE",
+    "baseUnlock": 18,
+    "date": "2025-07-31",
+    "image": "/images/flyte-ai.png",
+    "participants": "3,248",
+    "oversub": "234.72%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "VPay",
+    "ticker": "VPAY",
+    "baseUnlock": 102,
+    "date": "2025-07-31",
+    "image": "/images/vpay.png",
+    "participants": "1,339",
+    "oversub": "188%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "Advolve",
+    "ticker": "ADV",
+    "baseUnlock": 8,
+    "date": "2025-07-31",
+    "image": "/images/advolve.png",
+    "participants": "1,428",
+    "oversub": "214%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "Playstack AI",
+    "ticker": "PLSTK",
+    "baseUnlock": 4,
+    "date": "2025-07-31",
+    "image": "/images/playstack-ai.png",
+    "participants": "1,450",
+    "oversub": "212%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "Arvos AI",
+    "ticker": "ARVOS",
+    "baseUnlock": 3,
+    "date": "2025-07-31",
+    "image": "/images/arvos-ai.png",
+    "participants": "1,672",
+    "oversub": "155,71%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "Alliewai",
+    "ticker": "AWAI",
+    "baseUnlock": 23,
+    "date": "2025-07-31",
+    "image": "/images/alliewai.png",
+    "participants": "13,743",
+    "oversub": "629%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "TrueSight",
+    "ticker": "$TRUE",
+    "baseUnlock": 12,
+    "date": "2025-07-31",
+    "image": "/images/truesight.png",
+    "participants": "463",
+    "oversub": "113%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "Quant Fun",
+    "ticker": "QUANT",
+    "baseUnlock": 84,
+    "date": "2025-07-31",
+    "image": "/images/quant-fun.png",
+    "participants": "1,831",
+    "oversub": "219%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "Canza",
+    "ticker": "CANZA",
+    "baseUnlock": 8,
+    "date": "2025-07-31",
+    "image": "/images/canza.png",
+    "participants": "1,812",
+    "oversub": "172%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "DeepBrew",
+    "ticker": "DEEP",
+    "baseUnlock": 14,
+    "date": "2025-07-31",
+    "image": "/images/deepbrew.png",
+    "participants": "471",
+    "oversub": "125%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "SignalBay",
+    "ticker": "SIGNAL",
+    "baseUnlock": 9,
+    "date": "2025-07-31",
+    "image": "/images/signalbay.png",
+    "participants": "1,170",
+    "oversub": "199%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "SafeAgent",
+    "ticker": "SAFE",
+    "baseUnlock": 15,
+    "date": "2025-07-31",
+    "image": "/images/safeagent.png",
+    "participants": "920",
+    "oversub": "186%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "SynthGuard AI",
+    "ticker": "SGD",
+    "baseUnlock": 11,
+    "date": "2025-07-31",
+    "image": "/images/synthguard-ai.png",
+    "participants": "874",
+    "oversub": "162%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "CharX World",
+    "ticker": "CHARX",
+    "baseUnlock": 28,
+    "date": "2025-07-31",
+    "image": "/images/charx-world.png",
+    "participants": "1,098",
+    "oversub": "130%",
+    "launchTime": "17:00"
+    },
+{
+    "name": "Jack Potts",
+    "ticker": "JACK",
+    "baseUnlock": 30,
+    "date": "2025-07-31",
+    "image": "/images/jack-potts.png",
+    "participants": "10,764",
+    "oversub": "487%",
+    "launchTime": "17:00"
+    }
 ]
