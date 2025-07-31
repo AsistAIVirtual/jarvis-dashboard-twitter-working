@@ -290,5 +290,76 @@
   {
     "name": "Z A I A",
     "ticker": "KBT"
+  {
+    "name": "Buy",
+    "ticker": "BUY"
+    },
+  {
+    "name": "AIBRK",
+    "ticker": "AIBRK"
+    },
+  {
+    "name": "ModelGuard",
+    "ticker": "GUARD"
+    },
+  {
+    "name": "Flyte AI",
+    "ticker": "FLYTE"
+    },
+  {
+    "name": "Vpay",
+    "ticker": "VPAY"
+    },
+  {
+    "name": "Advolve",
+    "ticker": "ADV"
+    },
+  {
+    "name": "Playstack AI",
+    "ticker": "PLSTK"
+    },
+  {
+    "name": "Arvos AI",
+    "ticker": "ARVOS"
+    },
+  {
+    "name": "Alliewai",
+    "ticker": "AWAI"
+    },
+  {
+    "name": "TrueSight",
+    "ticker": "$TRUE"
+    },
+  {
+    "name": "Quant Fun",
+    "ticker": "QUANT"
+    },
+  {
+    "name": "Canza",
+    "ticker": "Canza"
+    },
+  {
+    "name": "DeepBrew",
+    "ticker": "DEEP"
+    },
+  {
+    "name": "SignalBay",
+    "ticker": "SIGNAL"
+    },
+  {
+    "name": "SafeAgent",
+    "ticker": "SAFE"
+    },
+  {
+    "name": "SynthGuard AI",
+    "ticker": "SGD"
+    },
+  {
+    "name": "CharX World",
+    "ticker": "CHARX"
+    },
+  {
+    "name": "Jack Potts",
+    "ticker": "JACK"
   }
 ]
