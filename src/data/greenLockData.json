@@ -909,6 +909,106 @@
     "oversub": "130%",
     "launchTime": "17:00"
     },
+    {
+    "name": "DynaVest",
+    "ticker": "DYNA",
+    "baseUnlock": 3,
+    "date": "2025-08-06",
+    "image": "/images/dynavest.png",
+    "participants": "849",
+    "oversub": "170%",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "Predi",
+    "ticker": "PREDI",
+    "baseUnlock": 1,
+    "date": "2025-08-06",
+    "image": "/images/predi.png",
+    "participants": "1,620",
+    "oversub": "194",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "Dessistant",
+    "ticker": "DESS",
+    "baseUnlock": 18,
+    "date": "2025-08-06",
+    "image": "/images/dessistant.png",
+    "participants": "9,818",
+    "oversub": "403",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "AIAPE",
+    "ticker": "AIAPE",
+    "baseUnlock": 50,
+    "date": "2025-08-06",
+    "image": "/images/aiape.png",
+    "participants": "3,451",
+    "oversub": "258",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "ServLoop AI",
+    "ticker": "SRV",
+    "baseUnlock": 0,
+    "date": "2025-08-06",
+    "image": "/images/servloop-ai.png",
+    "participants": "1,360",
+    "oversub": "114",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "RealMint",
+    "ticker": "REALMINT",
+    "baseUnlock": 0,
+    "date": "2025-08-06",
+    "image": "/images/realmint.png",
+    "participants": "1,923",
+    "oversub": "147",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "SkillVault",
+    "ticker": "SKILL",
+    "baseUnlock": 0,
+    "date": "2025-08-06",
+    "image": "/images/skillvault.png",
+    "participants": "1,482",
+    "oversub": "138",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "CoinRaces DAO",
+    "ticker": "CRDAO",
+    "baseUnlock": 80,
+    "date": "2025-08-06",
+    "image": "/images/coinraces-dao.png",
+    "participants": "6,251",
+    "oversub": "329",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "Tenna",
+    "ticker": "TENNA",
+    "baseUnlock": 26,
+    "date": "2025-08-06",
+    "image": "/images/tenna.png",
+    "participants": "4,074",
+    "oversub": "281",
+    "launchTime": "17:00"
+    },
+  {
+    "name": "REAL ESMATE",
+    "ticker": "EMATE",
+    "baseUnlock": 29,
+    "date": "2025-08-06",
+    "image": "/images/real-esmate.png",
+    "participants": "1,664",
+    "oversub": "234",
+    "launchTime": "17:00"
+    },
 {
     "name": "Jack Potts",
     "ticker": "JACK",
