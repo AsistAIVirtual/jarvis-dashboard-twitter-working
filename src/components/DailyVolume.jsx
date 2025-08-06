@@ -87,7 +87,7 @@ export default function DailyVolume() {
     <div className="flex flex-col items-center mt-10 text-white">
       <h1 className="text-2xl font-bold mb-2">Daily Volume Checker</h1>
       <p className="text-sm text-gray-300 mb-4">
-        You must stake or hold at least 100,000 $JARVIS
+        You must stake or hold at least 50,000 $JARVIS
       </p>
       <input
         type="text"
