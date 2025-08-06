@@ -37,11 +37,11 @@ export default function DailyVolume() {
       }
 
       const total = holdAmount + stakeAmount;
-      if (total >= 100000) {
+      if (total >= 50000) {
         setIsEligible(true);
       } else {
         setIsEligible(false);
-        alert('You must stake or hold at least 100,000 $JARVIS');
+        alert('You must stake or hold at least 50,000 $JARVIS');
       }
     } catch (err) {
       console.error(err);
