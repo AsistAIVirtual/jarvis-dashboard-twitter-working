@@ -359,6 +359,46 @@
     "name": "CharX World",
     "ticker": "CHARX"
     },
+    {
+"name": "DynaVest",
+"ticker": "DYNA"
+},
+  {
+"name": "Predi",
+"ticker": "PREDI"
+},
+  {
+"name": "Dessistant",
+"ticker": "DESS"
+},
+  {
+"name": "AIAPE",
+"ticker": "AIAPE"
+},
+  {
+"name": "ServLoop AI",
+"ticker": "SRV"
+},
+  {
+"name": "RealMint",
+"ticker": "REALMINT"
+},
+  {
+"name": "SkillVault",
+"ticker": "SKILL"
+},
+  {
+"name": "CoinRaces DAO",
+"ticker": "CRDAO"
+},
+  {
+"name": "Tenna",
+"ticker": "TENNA"
+},
+  {
+"name": "REAL ESMATE",
+"ticker": "EMATE"
+},
   {
     "name": "Jack Potts",
     "ticker": "JACK"
