@@ -25,11 +25,11 @@ export default function ReminderForm() {
       const total = txs.reduce((acc, tx) => acc + parseFloat(tx.value) / 1e18, 0);
       setStakeAmount(total);
 
-      if (total >= 250000) {
+      if (total >= 100000) {
         setIsEligible(true);
         setMaxReminders(2);
-        alert("Stake detected: 2 reminder rights.");
-      } else if (total >= 100000) {
+        alert("Stake detected: 3 reminder rights.");
+      } else if (total >= 0) {
         setIsEligible(true);
         setMaxReminders(1);
         alert("Stake detected: 1 reminder right.");
