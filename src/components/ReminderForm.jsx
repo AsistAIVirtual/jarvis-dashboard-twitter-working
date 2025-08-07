@@ -27,16 +27,12 @@ export default function ReminderForm() {
 
       if (total >= 100000) {
         setIsEligible(true);
-        setMaxReminders(2);
+        setMaxReminders(3);
         alert("Stake detected: 3 reminder rights.");
       } else if (total >= 0) {
         setIsEligible(true);
         setMaxReminders(1);
         alert("Stake detected: 1 reminder right.");
-      } else {
-        setIsEligible(false);
-        setMaxReminders(0);
-        alert("Stake too low.");
       }
     } catch (err) {
       console.error(err);
