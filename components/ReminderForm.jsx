@@ -15,7 +15,7 @@ export default function ReminderForm() {
   const STAKE_CONTRACT = "0xa72fB1A92A1489a986fE1d27573F4F6a1bA83dBe";
   const BASESCAN_API_KEY = "MA9MEETHKKBPXMBKSGRYE4E6CBIERXS3EJ";
 
-  const maxSelections = stakeAmount >= 500000 * 1e18 ? 3 : stakeAmount >= 200000 * 1e18 ? 2 : stakeAmount >= 100000 * 1e18 ? 1 : 0;
+  const maxSelections = stakeAmount >= 100000 * 1e18 ? 3 : stakeAmount >= 50000 * 1e18 ? 2 : stakeAmount >= 0 * 1e18 ? 1 : 0;
 
   const handleTokenChange = (e, index) => {
     const newTokens = [...selectedTokens];
