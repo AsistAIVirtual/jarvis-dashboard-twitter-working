@@ -43,11 +43,11 @@ export default function ReminderForm() {
 
         if (balance >= 100000 * 1e18) {
           setIsStakeValid(true);
-          const eligible = balance >= 250000 * 1e18 ? 3 : balance >= 100000 * 1e18 ? 2 : 1;
+          const eligible = balance >= 100000 * 1e18 ? 3 : balance >= 0 * 1e18 ? 2 : 1;
           setMessage(`✅ Eligible for ${eligible} reminder(s)`);
         } else {
           setIsStakeValid(false);
-          setMessage("❌ You must stake at least 100,000 tokens.");
+          setMessage("❌ You must stake at least 0,000 tokens.");
         }
       } else {
         setIsStakeValid(false);
