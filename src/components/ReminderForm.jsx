@@ -1,3 +1,4 @@
+// src/components/ReminderForm.jsx
 import { useState } from 'react';
 import tokenList from '../data/greenLockTokens.json';
 import greenLockData from '../data/greenLockData.json';
@@ -10,8 +11,8 @@ const API_KEY = "MA9MEETHKKBPXMBKSGRYE4E6CBIERXS3EJ";
 export default function ReminderForm() {
   const [wallet, setWallet] = useState('');
   const [twitterUsername, setTwitterUsername] = useState('');
-  const [reminderCount, setReminderCount] = useState('');
-  const [token, setToken] = useState('');
+  const [reminderCount, setReminderCount] = useState(''); // X gün kala
+  const [token, setToken] = useState('');                 // ticker
   const [isEligible, setIsEligible] = useState(false);
   const [stakeAmount, setStakeAmount] = useState(0);
   const [maxReminders, setMaxReminders] = useState(0);
@@ -29,34 +30,29 @@ export default function ReminderForm() {
 
       const start = new Date(`${r.date}T00:00:00Z`);
       let unlock = new Date(start.getTime() + base * 86400000);
-
       if (r.launchTime && /^\d{1,2}:\d{2}$/.test(r.launchTime)) {
         const [h, m] = r.launchTime.split(':').map(Number);
         unlock = new Date(Date.UTC(
           unlock.getUTCFullYear(), unlock.getUTCMonth(), unlock.getUTCDate(), h, m, 0, 0
         ));
       }
-
       const d = Number(daysStr ?? 0);
       if (!Number.isFinite(d) || d < 0) { setUnlockPreview(unlock); setDuePreview(null); return; }
-
       const raw = new Date(unlock.getTime() - d * 86400000);
       const due = new Date(Date.UTC(
-        raw.getUTCFullYear(), raw.getUTCMonth(), raw.getUTCDate(), 9, 0, 0, 0 // 09:00 UTC
+        raw.getUTCFullYear(), raw.getUTCMonth(), raw.getUTCDate(), 9, 0, 0, 0
       ));
-
       setUnlockPreview(unlock);
       setDuePreview(due);
     } catch {
-      setUnlockPreview(null);
-      setDuePreview(null);
+      setUnlockPreview(null); setDuePreview(null);
     }
   }
 
-  // Stake kontrolü (0 => 1 claim, >=100k => 3 claim)
+  // Stake kontrolü (0 => 1 hak, >=100k => 3 hak)
   const checkStake = async () => {
     try {
-      if (!wallet) { alert("First enter your wallet address."); return; }
+      if (!wallet) { alert("Enter your wallet first."); return; }
       const url = `${BASESCAN_API}?module=account&action=tokentx&contractaddress=${TOKEN_CONTRACT}&address=${wallet}&apikey=${API_KEY}`;
       const res = await fetch(url);
       const data = await res.json();
@@ -71,7 +67,7 @@ export default function ReminderForm() {
       const rights = total >= 100000 ? 3 : 1;
       setMaxReminders(rights);
       setIsEligible(true);
-      alert(`Stake: ${total.toLocaleString()} token. Claim: ${rights}.`);
+      alert(`Stake: ${total.toLocaleString()} tokens. Rights: ${rights}.`);
     } catch (err) {
       console.error(err);
       alert("Failed to check stake.");
@@ -81,21 +77,21 @@ export default function ReminderForm() {
   const handleSubmit = async () => {
     try {
       if (!wallet || !twitterUsername || !token) {
-        alert("Wallet, Twitter username ve Token selection is mandatory .");
+        alert("Wallet, Twitter username and token are required.");
         return;
       }
       const remindInDays = Number(reminderCount ?? 0);
       if (!Number.isFinite(remindInDays) || remindInDays < 0) {
-        alert("Days Before Unlock must be numeric and 0+.");
+        alert("Days Before Unlock must be a non-negative number.");
         return;
       }
 
       const row = greenLockData.find(x => (x.ticker || x.Ticker) === token);
-      if (!row) { alert("The selected token was not found in greenLockData.json."); return; }
+      if (!row) { alert("Selected token not found in greenLockData.json."); return; }
       const baseUnlockDays = Number(row.baseUnlock);
-      if (!Number.isFinite(baseUnlockDays)) { alert("baseUnlock value is incorrect."); return; }
+      if (!Number.isFinite(baseUnlockDays)) { alert("Invalid baseUnlock value."); return; }
 
-      // Unlock = date + baseUnlock (+launchTime varsa)
+      // Unlock = date + baseUnlock (+ launchTime varsa)
       const startUTC = new Date(`${row.date}T00:00:00Z`);
       let unlockDate = new Date(startUTC.getTime() + baseUnlockDays * 86400000);
       if (row.launchTime && /^\d{1,2}:\d{2}$/.test(row.launchTime)) {
@@ -111,7 +107,7 @@ export default function ReminderForm() {
         rawDue.getUTCFullYear(), rawDue.getUTCMonth(), rawDue.getUTCDate(), 9, 0, 0, 0
       ));
       if (dueAt.getTime() <= Date.now()) {
-        alert("The day you selected is in the past. Choose a larger number of days..");
+        alert("Selected reminder day falls in the past. Choose a larger number.");
         return;
       }
 
@@ -123,25 +119,29 @@ export default function ReminderForm() {
         token: String(token).trim(),
         remindInDays,
         stakeAmount: Number(stakeAmount || 0),
-        dueAt: dueAt.toISOString(),                 // <<<< gönderilen alan
+        dueAt: dueAt.toISOString(),
       };
 
-      console.log('subscribe payload ->', payload);
-
-      const response = await fetch("https://vercel-twitter-reminder-bot.vercel.app/api/subscribe-tweet", {
+      const response = await fetch("/api/subscribe-tweet", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
       const result = await response.json().catch(() => ({}));
-      if (!response.ok) { alert(`Error: ${result?.error || `HTTP ${response.status}`}`); return; }
 
-      if (result?.ok || result?.success) {
-        alert("Reminder saved!");
-      } else {
-        alert(`Error: ${result?.error || 'Unknown error'}`);
+      // Backend limit kontrolü
+      if (!result.ok && result.error === "limit_reached") {
+        alert(`You've reached your reminder limit (${result.rights} max). Active: ${result.activeCount}`);
+        return;
       }
+
+      if (!response.ok) {
+        alert(`Error: ${result?.error || `HTTP ${response.status}`}`);
+        return;
+      }
+
+      alert("Reminder saved!");
     } catch (err) {
       console.error("Tweet error:", err);
       alert(`Tweet error: ${String(err?.message || err)}`);
@@ -203,6 +203,7 @@ export default function ReminderForm() {
           </select>
         </div>
 
+        {/* Preview */}
         {token && reminderCount !== '' && (
           <div className="mb-3 text-xs text-gray-300">
             <div>Unlock (UTC): <strong>{unlockPreview ? unlockPreview.toUTCString() : '—'}</strong></div>
