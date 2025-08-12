@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import tokenList from '../data/greenLockTokens.json';
 
 const TOKEN_CONTRACT = "0x1E562BF73369D1d5B7E547b8580039E1f05cCc56";
@@ -9,20 +9,28 @@ const API_KEY = "MA9MEETHKKBPXMBKSGRYE4E6CBIERXS3EJ";
 export default function ReminderForm() {
   const [wallet, setWallet] = useState('');
   const [twitterUsername, setTwitterUsername] = useState('');
-  const [reminderCount, setReminderCount] = useState('');
-  const [token, setToken] = useState('');
+  const [reminderCount, setReminderCount] = useState(''); // gün
+  const [token, setToken] = useState('');                  // seçilen token ticker
   const [isEligible, setIsEligible] = useState(false);
   const [stakeAmount, setStakeAmount] = useState(0);
   const [maxReminders, setMaxReminders] = useState(0);
 
+  // Stake kontrolü (>=100k => 3 hak, >=0 => 1 hak)
   const checkStake = async () => {
     try {
+      if (!wallet) {
+        alert("Önce cüzdan adresini gir.");
+        return;
+      }
       const url = `${BASESCAN_API}?module=account&action=tokentx&contractaddress=${TOKEN_CONTRACT}&address=${wallet}&apikey=${API_KEY}`;
       const res = await fetch(url);
       const data = await res.json();
-      const txs = data.result.filter(tx => tx.to.toLowerCase() === STAKE_ADDRESS.toLowerCase());
 
-      const total = txs.reduce((acc, tx) => acc + parseFloat(tx.value) / 1e18, 0);
+      const txs = (data?.result || []).filter(
+        (tx) => tx?.to?.toLowerCase() === STAKE_ADDRESS.toLowerCase()
+      );
+
+      const total = txs.reduce((acc, tx) => acc + (parseFloat(tx.value || '0') / 1e18), 0);
       setStakeAmount(total);
 
       if (total >= 100000) {
@@ -40,31 +48,60 @@ export default function ReminderForm() {
     }
   };
 
+  // BACKEND'İN BEKLEDİĞİ İSİMLERLE GÖNDERİM
   const handleSubmit = async () => {
     try {
+      // basit doğrulamalar
+      if (!wallet || !twitterUsername || !token) {
+        alert("Wallet, Twitter kullanıcı adı ve Token seçimi zorunlu.");
+        return;
+      }
+      const remindInDays = Number(reminderCount ?? 0);
+      if (Number.isNaN(remindInDays)) {
+        alert("Days Before Unlock sayısal olmalı.");
+        return;
+      }
+
+      // @ işaretini temizle
+      const cleanUsername = String(twitterUsername).replace(/^@/, '').trim();
+
+      const payload = {
+        wallet: wallet.trim(),
+        twitterUsername: cleanUsername,
+        token: String(token).trim(),
+        remindInDays,
+        stakeAmount: Number(stakeAmount || 0),
+      };
+
+      console.log('subscribe payload ->', payload);
+
       const response = await fetch("https://vercel-twitter-reminder-bot.vercel.app/api/subscribe-tweet", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          twitterUsername,
-          tokenName: token,
-          days: reminderCount,
-          wallet,
-          stakeAmount
-        })
+        body: JSON.stringify(payload),
       });
-      const result = await response.json();
 
-      if (result.error === "limit_reached") {
-        alert(result.message || "Reminder limit reached.");
-      } else if (result.success) {
+      // Sunucudan dönen sonucu oku
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        // backend tarafında anlamlı hata varsa göster
+        alert(`Error: ${result?.error || `HTTP ${response.status}`}`);
+        return;
+      }
+
+      // V1 (teşhis modu) kullanıyorsan ok:true döner
+      // V2 (gerçek tweet) kullanıyorsan ok:true + tweetId döner
+      if (result?.ok) {
+        alert("Reminder saved!");
+      } else if (result?.success) {
         alert("Reminder saved and tweet sent!");
       } else {
-        alert("Error: " + result.error);
+        alert(`Error: ${result?.error || 'Unknown error'}`);
       }
     } catch (err) {
       console.error("Tweet error:", err);
-      alert("Tweet error.");
+      alert(`Tweet error: ${String(err?.message || err)}`);
     }
   };
 
@@ -124,6 +161,7 @@ export default function ReminderForm() {
 
         <div className="mb-2 text-sm text-gray-300">
           Detected Stake: <strong>{stakeAmount.toLocaleString()}</strong> tokens
+          {maxReminders > 0 && <> &nbsp;|&nbsp; Rights: <strong>{maxReminders}</strong></>}
         </div>
 
         <div className="flex justify-between items-center gap-2">
