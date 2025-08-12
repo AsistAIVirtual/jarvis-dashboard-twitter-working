@@ -10,13 +10,46 @@ const API_KEY = "MA9MEETHKKBPXMBKSGRYE4E6CBIERXS3EJ";
 export default function ReminderForm() {
   const [wallet, setWallet] = useState('');
   const [twitterUsername, setTwitterUsername] = useState('');
-  const [reminderCount, setReminderCount] = useState(''); // kaç gün kala
-  const [token, setToken] = useState('');                  // token ticker
+  const [reminderCount, setReminderCount] = useState(''); // X gün kala
+  const [token, setToken] = useState('');                 // seçilen token ticker
   const [isEligible, setIsEligible] = useState(false);
   const [stakeAmount, setStakeAmount] = useState(0);
   const [maxReminders, setMaxReminders] = useState(0);
 
-  // Stake kontrolü
+  // Önizleme için
+  const [unlockPreview, setUnlockPreview] = useState(null);
+  const [duePreview, setDuePreview] = useState(null);
+
+  function computePreviews(tkr, daysStr) {
+    try {
+      const r = greenLockData.find(x => (x.ticker || x.Ticker) === tkr);
+      if (!r) { setUnlockPreview(null); setDuePreview(null); return; }
+      const base = Number(r.baseUnlock);
+      if (!Number.isFinite(base)) { setUnlockPreview(null); setDuePreview(null); return; }
+
+      const start = new Date(`${r.date}T00:00:00Z`);
+      let unlock = new Date(start.getTime() + base * 86400000);
+      if (r.launchTime && /^\d{1,2}:\d{2}$/.test(r.launchTime)) {
+        const [h, m] = r.launchTime.split(':').map(Number);
+        unlock = new Date(Date.UTC(
+          unlock.getUTCFullYear(), unlock.getUTCMonth(), unlock.getUTCDate(), h, m, 0, 0
+        ));
+      }
+      const d = Number(daysStr ?? 0);
+      if (!Number.isFinite(d) || d < 0) { setUnlockPreview(unlock); setDuePreview(null); return; }
+      const raw = new Date(unlock.getTime() - d * 86400000);
+      const due = new Date(Date.UTC(
+        raw.getUTCFullYear(), raw.getUTCMonth(), raw.getUTCDate(), 9, 0, 0, 0
+      ));
+      setUnlockPreview(unlock);
+      setDuePreview(due);
+    } catch {
+      setUnlockPreview(null);
+      setDuePreview(null);
+    }
+  }
+
+  // Stake kontrolü (0 => 1 hak, >=100k => 3 hak)
   const checkStake = async () => {
     try {
       if (!wallet) {
@@ -28,64 +61,62 @@ export default function ReminderForm() {
       const data = await res.json();
 
       const txs = (data?.result || []).filter(
-        (tx) => tx?.to?.toLowerCase() === STAKE_ADDRESS.toLowerCase()
+        (tx) => String(tx?.to || '').toLowerCase() === STAKE_ADDRESS.toLowerCase()
       );
 
-      const total = txs.reduce((acc, tx) => acc + (parseFloat(tx.value || '0') / 1e18), 0);
+      const total = txs.reduce((acc, tx) => acc + (parseFloat(tx?.value || '0') / 1e18), 0);
       setStakeAmount(total);
 
-      if (total >= 100000) {
-        setIsEligible(true);
-        setMaxReminders(3);
-        alert("Stake detected: 3 reminder rights.");
-      } else if (total > 0) {
-        setIsEligible(true);
-        setMaxReminders(1);
-        alert("Stake detected: 1 reminder right.");
-      } else {
-        setIsEligible(false);
-        alert("No stake detected.");
-      }
+      const rights = total >= 100000 ? 3 : 1; // kuralın
+      setMaxReminders(rights);
+      setIsEligible(true); // 0 stake’de bile aktif
+      alert(`Stake: ${total.toLocaleString()} token. Hak: ${rights}.`);
     } catch (err) {
       console.error(err);
       alert("Failed to check stake.");
     }
   };
 
-  // Form submit
+  // Submit: dueAt hesapla ve backend'e gönder
   const handleSubmit = async () => {
     try {
       if (!wallet || !twitterUsername || !token) {
         alert("Wallet, Twitter kullanıcı adı ve Token seçimi zorunlu.");
         return;
       }
+
       const remindInDays = Number(reminderCount ?? 0);
-      if (Number.isNaN(remindInDays) || remindInDays < 0) {
+      if (!Number.isFinite(remindInDays) || remindInDays < 0) {
         alert("Days Before Unlock sayısal ve 0+ olmalı.");
         return;
       }
 
-      // Token unlock bilgisi
-      const row = greenLockData.find(r => (r.ticker || r.Ticker) === token);
-      if (!row) {
-        alert("Seçili token greenLockData.json içinde bulunamadı.");
-        return;
-      }
+      const row = greenLockData.find(x => (x.ticker || x.Ticker) === token);
+      if (!row) { alert("Seçili token greenLockData.json içinde bulunamadı."); return; }
 
       const baseUnlockDays = Number(row.baseUnlock);
-      if (Number.isNaN(baseUnlockDays)) {
-        alert("baseUnlock değeri hatalı.");
+      if (!Number.isFinite(baseUnlockDays)) { alert("baseUnlock değeri hatalı."); return; }
+
+      // Unlock = date + baseUnlock  (+ launchTime varsa)
+      const startUTC = new Date(`${row.date}T00:00:00Z`);
+      let unlockDate = new Date(startUTC.getTime() + baseUnlockDays * 86400000);
+      if (row.launchTime && /^\d{1,2}:\d{2}$/.test(row.launchTime)) {
+        const [h, m] = row.launchTime.split(':').map(Number);
+        unlockDate = new Date(Date.UTC(
+          unlockDate.getUTCFullYear(), unlockDate.getUTCMonth(), unlockDate.getUTCDate(), h, m, 0, 0
+        ));
+      }
+
+      // dueAt = unlock - remindInDays gün (09:00 UTC)
+      const rawDue = new Date(unlockDate.getTime() - remindInDays * 86400000);
+      const dueAt = new Date(Date.UTC(
+        rawDue.getUTCFullYear(), rawDue.getUTCMonth(), rawDue.getUTCDate(), 9, 0, 0, 0
+      ));
+      if (dueAt.getTime() <= Date.now()) {
+        alert("Seçtiğin gün, kilit açılışına göre geçmişte kalıyor. Daha büyük gün sayısı gir.");
         return;
       }
 
-      // Unlock tarihi
-      const startDate = new Date(`${row.date}T00:00:00Z`);
-      const unlockDate = new Date(startDate.getTime() + baseUnlockDays * 24 * 60 * 60 * 1000);
-
-      // Hatırlatma tarihi = unlock tarihinden X gün önce
-      const dueAt = new Date(unlockDate.getTime() - remindInDays * 24 * 60 * 60 * 1000);
-
-      // Twitter username temizle
       const cleanUsername = String(twitterUsername).replace(/^@/, '').trim();
 
       const payload = {
@@ -106,11 +137,7 @@ export default function ReminderForm() {
       });
 
       const result = await response.json().catch(() => ({}));
-
-      if (!response.ok) {
-        alert(`Error: ${result?.error || `HTTP ${response.status}`}`);
-        return;
-      }
+      if (!response.ok) { alert(`Error: ${result?.error || `HTTP ${response.status}`}`); return; }
 
       if (result?.ok || result?.success) {
         alert("Reminder saved!");
@@ -155,9 +182,10 @@ export default function ReminderForm() {
           <input
             type="number"
             value={reminderCount}
-            onChange={(e) => setReminderCount(e.target.value)}
+            onChange={(e) => { setReminderCount(e.target.value); computePreviews(token, e.target.value); }}
             className="w-full p-2 rounded bg-gray-800 text-white border border-gray-600"
             placeholder="e.g. 3"
+            min="0"
           />
         </div>
 
@@ -165,7 +193,7 @@ export default function ReminderForm() {
           <label className="block mb-1 text-sm">Select Token</label>
           <select
             value={token}
-            onChange={(e) => setToken(e.target.value)}
+            onChange={(e) => { setToken(e.target.value); computePreviews(e.target.value, reminderCount); }}
             className="w-full p-2 rounded bg-gray-800 text-white border border-gray-600"
           >
             <option value="">-- Choose Token --</option>
@@ -176,6 +204,13 @@ export default function ReminderForm() {
             ))}
           </select>
         </div>
+
+        {token && reminderCount !== '' && (
+          <div className="mb-3 text-xs text-gray-300">
+            <div>Unlock (UTC): <strong>{unlockPreview ? unlockPreview.toUTCString() : '—'}</strong></div>
+            <div>Reminder (UTC): <strong>{duePreview ? duePreview.toUTCString() : '—'}</strong></div>
+          </div>
+        )}
 
         <div className="mb-2 text-sm text-gray-300">
           Detected Stake: <strong>{stakeAmount.toLocaleString()}</strong> tokens
