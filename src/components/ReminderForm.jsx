@@ -16,7 +16,49 @@ export default function ReminderForm() {
   const [stakeAmount, setStakeAmount] = useState(0);
   const [maxReminders, setMaxReminders] = useState(0);
 
-  // Stake kontrolü (>=100k => 3 hak, <100k => 1 hak; 0 stake de 1 hak)
+  // Önizleme için
+  const [unlockPreview, setUnlockPreview] = useState(null); // Date | null
+  const [duePreview, setDuePreview] = useState(null);       // Date | null
+
+  // --- Yardımcı: token + gün değişince önizleme hesapla ---
+  function computePreviews(tkr, daysStr) {
+    try {
+      const r = greenLockData.find(x => (x.ticker || x.Ticker) === tkr);
+      if (!r) { setUnlockPreview(null); setDuePreview(null); return; }
+
+      const base = Number(r.baseUnlock);
+      if (!Number.isFinite(base)) { setUnlockPreview(null); setDuePreview(null); return; }
+
+      // date + baseUnlock (UTC)
+      const start = new Date(`${r.date}T00:00:00Z`);
+      let unlock = new Date(start.getTime() + base * 86400000);
+
+      // launchTime varsa (örn "13:00") unlock saatini ona sabitle (UTC)
+      if (r.launchTime && /^\d{1,2}:\d{2}$/.test(r.launchTime)) {
+        const [h, m] = r.launchTime.split(':').map(Number);
+        unlock = new Date(Date.UTC(
+          unlock.getUTCFullYear(), unlock.getUTCMonth(), unlock.getUTCDate(), h, m, 0, 0
+        ));
+      }
+
+      const d = Number(daysStr ?? 0);
+      if (!Number.isFinite(d) || d < 0) { setUnlockPreview(unlock); setDuePreview(null); return; }
+
+      // due = unlock - d gün, 09:00 UTC
+      const raw = new Date(unlock.getTime() - d * 86400000);
+      const due = new Date(Date.UTC(
+        raw.getUTCFullYear(), raw.getUTCMonth(), raw.getUTCDate(), 9, 0, 0, 0
+      ));
+
+      setUnlockPreview(unlock);
+      setDuePreview(due);
+    } catch {
+      setUnlockPreview(null);
+      setDuePreview(null);
+    }
+  }
+
+  // --- Stake kontrolü (>=100k => 3 hak, aksi halde 1 hak; 0 stake de 1 hak) ---
   const checkStake = async () => {
     try {
       if (!wallet) {
@@ -49,7 +91,7 @@ export default function ReminderForm() {
     }
   };
 
-  // Kilit açılışına X gün kala dueAt hesapla ve backend'e gönder
+  // --- Submit: dueAt hesapla ve backend'e gönder ---
   const handleSubmit = async () => {
     try {
       if (!wallet || !twitterUsername || !token) {
@@ -63,37 +105,41 @@ export default function ReminderForm() {
         return;
       }
 
-      // Seçilen token satırını bul
-      const row = greenLockData.find(r => (r.ticker || r.Ticker) === token);
+      const row = greenLockData.find(x => (x.ticker || x.Ticker) === token);
       if (!row) {
         alert("Seçili token greenLockData.json içinde bulunamadı.");
         return;
       }
 
-      // baseUnlock + date -> gerçek unlock tarihi (UTC)
       const baseUnlockDays = Number(row.baseUnlock);
       if (!Number.isFinite(baseUnlockDays)) {
         alert("baseUnlock değeri hatalı.");
         return;
       }
 
-      const startUTC = new Date(`${row.date}T00:00:00Z`); // sayacın başladığı gün
-      const unlockDate = new Date(startUTC.getTime() + baseUnlockDays * 86400000);
+      // Unlock = date + baseUnlock
+      const startUTC = new Date(`${row.date}T00:00:00Z`);
+      let unlockDate = new Date(startUTC.getTime() + baseUnlockDays * 86400000);
 
-      // dueAt = unlockDate - remindInDays gün (saat 09:00 UTC)
+      // launchTime varsa, unlock saatini ona sabitle (UTC)
+      if (row.launchTime && /^\d{1,2}:\d{2}$/.test(row.launchTime)) {
+        const [h, m] = row.launchTime.split(':').map(Number);
+        unlockDate = new Date(Date.UTC(
+          unlockDate.getUTCFullYear(), unlockDate.getUTCMonth(), unlockDate.getUTCDate(), h, m, 0, 0
+        ));
+      }
+
+      // dueAt = unlock - remindInDays gün, 09:00 UTC
       const rawDue = new Date(unlockDate.getTime() - remindInDays * 86400000);
       const dueAt = new Date(Date.UTC(
         rawDue.getUTCFullYear(), rawDue.getUTCMonth(), rawDue.getUTCDate(), 9, 0, 0, 0
       ));
 
-      // Geçmiş kontrolü
-      const now = new Date();
-      if (dueAt.getTime() <= now.getTime()) {
-        alert("Seçtiğiniz gün sayısı geçmiş bir hatırlatma tarihine denk geliyor. Daha büyük bir gün sayısı girin.");
+      if (dueAt.getTime() <= Date.now()) {
+        alert("Seçtiğin gün, kilit açılışına göre geçmişte kalıyor. Daha büyük bir gün sayısı gir.");
         return;
       }
 
-      // @ işaretini temizle
       const cleanUsername = String(twitterUsername).replace(/^@/, '').trim();
 
       const payload = {
@@ -163,7 +209,7 @@ export default function ReminderForm() {
           <input
             type="number"
             value={reminderCount}
-            onChange={(e) => setReminderCount(e.target.value)}
+            onChange={(e) => { setReminderCount(e.target.value); computePreviews(token, e.target.value); }}
             className="w-full p-2 rounded bg-gray-800 text-white border border-gray-600"
             placeholder="e.g. 3"
             min="0"
@@ -174,7 +220,7 @@ export default function ReminderForm() {
           <label className="block mb-1 text-sm">Select Token</label>
           <select
             value={token}
-            onChange={(e) => setToken(e.target.value)}
+            onChange={(e) => { setToken(e.target.value); computePreviews(e.target.value, reminderCount); }}
             className="w-full p-2 rounded bg-gray-800 text-white border border-gray-600"
           >
             <option value="">-- Choose Token --</option>
@@ -185,6 +231,14 @@ export default function ReminderForm() {
             ))}
           </select>
         </div>
+
+        {/* Önizleme: Unlock & Reminder zamanı */}
+        {token && reminderCount !== '' && (
+          <div className="mb-3 text-xs text-gray-300">
+            <div>Unlock (UTC): <strong>{unlockPreview ? unlockPreview.toUTCString() : '—'}</strong></div>
+            <div>Reminder (UTC): <strong>{duePreview ? duePreview.toUTCString() : '—'}</strong></div>
+          </div>
+        )}
 
         <div className="mb-2 text-sm text-gray-300">
           Detected Stake: <strong>{stakeAmount.toLocaleString()}</strong> tokens
