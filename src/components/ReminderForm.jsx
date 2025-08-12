@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import tokenList from '../data/greenLockTokens.json';
+import greenLockData from '../data/greenLockData.json';
 
 const TOKEN_CONTRACT = "0x1E562BF73369D1d5B7E547b8580039E1f05cCc56";
 const STAKE_ADDRESS = "0xa72fB1A92A1489a986fE1d27573F4F6a1bA83dBe";
@@ -48,7 +49,7 @@ export default function ReminderForm() {
     }
   };
 
-  // BACKEND'İN BEKLEDİĞİ İSİMLERLE GÖNDERİM
+  // BACKEND'İN BEKLEDİĞİ İSİMLERLE GÖNDERİM + dueAt hesabı
   const handleSubmit = async () => {
     try {
       // basit doğrulamalar
@@ -57,10 +58,28 @@ export default function ReminderForm() {
         return;
       }
       const remindInDays = Number(reminderCount ?? 0);
-      if (Number.isNaN(remindInDays)) {
-        alert("Days Before Unlock sayısal olmalı.");
+      if (Number.isNaN(remindInDays) || remindInDays < 0) {
+        alert("Days Before Unlock sayısal ve 0+ olmalı.");
         return;
       }
+
+      // Seçilen tokenin unlock tarihini greenLockData.json'dan çıkar
+      const row = greenLockData.find(r => (r.ticker || r.Ticker) === token);
+      if (!row) {
+        alert("Seçili token greenLockData.json içinde bulunamadı.");
+        return;
+      }
+
+      const baseUnlockDays = Number(row.baseUnlock);
+      if (Number.isNaN(baseUnlockDays)) {
+        alert("baseUnlock değeri hatalı.");
+        return;
+      }
+
+      // row.date örn "2025-08-06" -> UTC kabul ediyoruz
+      const startDate = new Date(`${row.date}T00:00:00Z`);
+      const unlockDate = new Date(startDate.getTime() + baseUnlockDays * 24 * 60 * 60 * 1000);
+      const dueAt = new Date(unlockDate.getTime() - remindInDays * 24 * 60 * 60 * 1000);
 
       // @ işaretini temizle
       const cleanUsername = String(twitterUsername).replace(/^@/, '').trim();
@@ -71,6 +90,7 @@ export default function ReminderForm() {
         token: String(token).trim(),
         remindInDays,
         stakeAmount: Number(stakeAmount || 0),
+        dueAt: dueAt.toISOString(), // <<< cron bununla çalışacak
       };
 
       console.log('subscribe payload ->', payload);
@@ -81,21 +101,15 @@ export default function ReminderForm() {
         body: JSON.stringify(payload),
       });
 
-      // Sunucudan dönen sonucu oku
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok) {
-        // backend tarafında anlamlı hata varsa göster
         alert(`Error: ${result?.error || `HTTP ${response.status}`}`);
         return;
       }
 
-      // V1 (teşhis modu) kullanıyorsan ok:true döner
-      // V2 (gerçek tweet) kullanıyorsan ok:true + tweetId döner
-      if (result?.ok) {
+      if (result?.ok || result?.success) {
         alert("Reminder saved!");
-      } else if (result?.success) {
-        alert("Reminder saved and tweet sent!");
       } else {
         alert(`Error: ${result?.error || 'Unknown error'}`);
       }
