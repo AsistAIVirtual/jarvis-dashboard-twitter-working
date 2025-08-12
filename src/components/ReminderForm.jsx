@@ -53,10 +53,10 @@ export default function ReminderForm() {
     }
   }
 
-  // Stake kontrolü (0 => 1 hak, >=100k => 3 hak)
+  // Stake kontrolü (0 => 1 claim, >=100k => 3 claim)
   const checkStake = async () => {
     try {
-      if (!wallet) { alert("Önce cüzdan adresini gir."); return; }
+      if (!wallet) { alert("First enter your wallet address."); return; }
       const url = `${BASESCAN_API}?module=account&action=tokentx&contractaddress=${TOKEN_CONTRACT}&address=${wallet}&apikey=${API_KEY}`;
       const res = await fetch(url);
       const data = await res.json();
@@ -71,7 +71,7 @@ export default function ReminderForm() {
       const rights = total >= 100000 ? 3 : 1;
       setMaxReminders(rights);
       setIsEligible(true);
-      alert(`Stake: ${total.toLocaleString()} token. Hak: ${rights}.`);
+      alert(`Stake: ${total.toLocaleString()} token. Claim: ${rights}.`);
     } catch (err) {
       console.error(err);
       alert("Failed to check stake.");
@@ -81,19 +81,19 @@ export default function ReminderForm() {
   const handleSubmit = async () => {
     try {
       if (!wallet || !twitterUsername || !token) {
-        alert("Wallet, Twitter kullanıcı adı ve Token seçimi zorunlu.");
+        alert("Wallet, Twitter username ve Token selection is mandatory .");
         return;
       }
       const remindInDays = Number(reminderCount ?? 0);
       if (!Number.isFinite(remindInDays) || remindInDays < 0) {
-        alert("Days Before Unlock sayısal ve 0+ olmalı.");
+        alert("Days Before Unlock must be numeric and 0+.");
         return;
       }
 
       const row = greenLockData.find(x => (x.ticker || x.Ticker) === token);
-      if (!row) { alert("Seçili token greenLockData.json içinde bulunamadı."); return; }
+      if (!row) { alert("The selected token was not found in greenLockData.json."); return; }
       const baseUnlockDays = Number(row.baseUnlock);
-      if (!Number.isFinite(baseUnlockDays)) { alert("baseUnlock değeri hatalı."); return; }
+      if (!Number.isFinite(baseUnlockDays)) { alert("baseUnlock value is incorrect."); return; }
 
       // Unlock = date + baseUnlock (+launchTime varsa)
       const startUTC = new Date(`${row.date}T00:00:00Z`);
@@ -111,7 +111,7 @@ export default function ReminderForm() {
         rawDue.getUTCFullYear(), rawDue.getUTCMonth(), rawDue.getUTCDate(), 9, 0, 0, 0
       ));
       if (dueAt.getTime() <= Date.now()) {
-        alert("Seçtiğin gün geçmişte kalıyor. Daha büyük bir gün sayısı seç.");
+        alert("The day you selected is in the past. Choose a larger number of days..");
         return;
       }
 
