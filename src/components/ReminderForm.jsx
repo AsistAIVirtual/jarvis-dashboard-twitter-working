@@ -10,13 +10,13 @@ const API_KEY = "MA9MEETHKKBPXMBKSGRYE4E6CBIERXS3EJ";
 export default function ReminderForm() {
   const [wallet, setWallet] = useState('');
   const [twitterUsername, setTwitterUsername] = useState('');
-  const [reminderCount, setReminderCount] = useState(''); // gün
-  const [token, setToken] = useState('');                  // seçilen token ticker
+  const [reminderCount, setReminderCount] = useState(''); // X gün kala
+  const [token, setToken] = useState('');                 // seçilen token ticker
   const [isEligible, setIsEligible] = useState(false);
   const [stakeAmount, setStakeAmount] = useState(0);
   const [maxReminders, setMaxReminders] = useState(0);
 
-  // Stake kontrolü (>=100k => 3 hak, >=0 => 1 hak)
+  // Stake kontrolü (>=100k => 3 hak, <100k => 1 hak; 0 stake de 1 hak)
   const checkStake = async () => {
     try {
       if (!wallet) {
@@ -28,17 +28,17 @@ export default function ReminderForm() {
       const data = await res.json();
 
       const txs = (data?.result || []).filter(
-        (tx) => tx?.to?.toLowerCase() === STAKE_ADDRESS.toLowerCase()
+        (tx) => String(tx?.to || '').toLowerCase() === STAKE_ADDRESS.toLowerCase()
       );
 
-      const total = txs.reduce((acc, tx) => acc + (parseFloat(tx.value || '0') / 1e18), 0);
+      const total = txs.reduce((acc, tx) => acc + (parseFloat(tx?.value || '0') / 1e18), 0);
       setStakeAmount(total);
 
       if (total >= 100000) {
         setIsEligible(true);
         setMaxReminders(3);
         alert("Stake detected: 3 reminder rights.");
-      } else if (total >= 0) {
+      } else {
         setIsEligible(true);
         setMaxReminders(1);
         alert("Stake detected: 1 reminder right.");
@@ -49,37 +49,49 @@ export default function ReminderForm() {
     }
   };
 
-  // BACKEND'İN BEKLEDİĞİ İSİMLERLE GÖNDERİM + dueAt hesabı
+  // Kilit açılışına X gün kala dueAt hesapla ve backend'e gönder
   const handleSubmit = async () => {
     try {
-      // basit doğrulamalar
       if (!wallet || !twitterUsername || !token) {
         alert("Wallet, Twitter kullanıcı adı ve Token seçimi zorunlu.");
         return;
       }
+
       const remindInDays = Number(reminderCount ?? 0);
-      if (Number.isNaN(remindInDays) || remindInDays < 0) {
+      if (!Number.isFinite(remindInDays) || remindInDays < 0) {
         alert("Days Before Unlock sayısal ve 0+ olmalı.");
         return;
       }
 
-      // Seçilen tokenin unlock tarihini greenLockData.json'dan çıkar
+      // Seçilen token satırını bul
       const row = greenLockData.find(r => (r.ticker || r.Ticker) === token);
       if (!row) {
         alert("Seçili token greenLockData.json içinde bulunamadı.");
         return;
       }
 
+      // baseUnlock + date -> gerçek unlock tarihi (UTC)
       const baseUnlockDays = Number(row.baseUnlock);
-      if (Number.isNaN(baseUnlockDays)) {
+      if (!Number.isFinite(baseUnlockDays)) {
         alert("baseUnlock değeri hatalı.");
         return;
       }
 
-      // row.date örn "2025-08-06" -> UTC kabul ediyoruz
-      const startDate = new Date(`${row.date}T00:00:00Z`);
-      const unlockDate = new Date(startDate.getTime() + baseUnlockDays * 24 * 60 * 60 * 1000);
-      const dueAt = new Date(unlockDate.getTime() - remindInDays * 24 * 60 * 60 * 1000);
+      const startUTC = new Date(`${row.date}T00:00:00Z`); // sayacın başladığı gün
+      const unlockDate = new Date(startUTC.getTime() + baseUnlockDays * 86400000);
+
+      // dueAt = unlockDate - remindInDays gün (saat 09:00 UTC)
+      const rawDue = new Date(unlockDate.getTime() - remindInDays * 86400000);
+      const dueAt = new Date(Date.UTC(
+        rawDue.getUTCFullYear(), rawDue.getUTCMonth(), rawDue.getUTCDate(), 9, 0, 0, 0
+      ));
+
+      // Geçmiş kontrolü
+      const now = new Date();
+      if (dueAt.getTime() <= now.getTime()) {
+        alert("Seçtiğiniz gün sayısı geçmiş bir hatırlatma tarihine denk geliyor. Daha büyük bir gün sayısı girin.");
+        return;
+      }
 
       // @ işaretini temizle
       const cleanUsername = String(twitterUsername).replace(/^@/, '').trim();
@@ -90,7 +102,7 @@ export default function ReminderForm() {
         token: String(token).trim(),
         remindInDays,
         stakeAmount: Number(stakeAmount || 0),
-        dueAt: dueAt.toISOString(), // <<< cron bununla çalışacak
+        dueAt: dueAt.toISOString(),
       };
 
       console.log('subscribe payload ->', payload);
@@ -154,6 +166,7 @@ export default function ReminderForm() {
             onChange={(e) => setReminderCount(e.target.value)}
             className="w-full p-2 rounded bg-gray-800 text-white border border-gray-600"
             placeholder="e.g. 3"
+            min="0"
           />
         </div>
 
