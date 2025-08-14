@@ -1018,5 +1018,25 @@
     "participants": "10,764",
     "oversub": "487",
     "launchTime": "17:00"
+    },
+    {
+    "name": "ArAIstotle",
+    "ticker": "FACY",
+    "baseUnlock": 25,
+    "date": "2025-08-14",
+    "image": "/images/araistotle.png",
+    "participants": "16,083",
+    "oversub": "658",
+    "launchTime": "17:00"
+    },
+      {
+    "name": "AI INU",
+    "ticker": "INU",
+    "baseUnlock": 29,
+    "date": "2025-08-14",
+    "image": "/images/ai-inu.png",
+    "participants": "1,024",
+    "oversub": "132",
+    "launchTime": "17:00"
     }
 ]
