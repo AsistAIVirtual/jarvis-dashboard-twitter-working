@@ -107,5 +107,6 @@ export const tokenList = [
   { tokenName: "Real Esmate", ticker: "EMATE", stakeContract: "0x5B021167BCb4D380bb8D3eB4B3A5AF4D66794B8F", tokenAddress: "0x74bF9813655d427BFEA800F8Af0e52A59FF24223", imageFile: "real-esmate.png" },
   { tokenName: "ArAIstotle", ticker: "FACY", stakeContract: "0x0bf72f32F51f004Bb92bD234bb49e5F30f78ffe8", tokenAddress: "0xFAC77f01957ed1B3DD1cbEa992199B8f85B6E886", imageFile: "araistotle.png" },
   { tokenName: "AI INU", ticker: "INU", stakeContract: "0x931750847698D3DCa8f2AaD7FA590e202918B4fd", tokenAddress: "0xA0ec3d7dc6E94736513bC2A35CA34E49b7681b51", imageFile: "ai-inu.png" },
-    { tokenName: "PokPok Agent Brain", ticker: "CDTA", stakeContract: "0x3e8115431E536229c5A4272a29BedC92127dbbeE", tokenAddress: "0x6DD4E9E85b96D4cb8a0C16C8a9b097e1c9205617", imageFile: "pokpok-agent-brain.png" }
+  { tokenName: "PokPok Agent Brain", ticker: "CDTA", stakeContract: "0x3e8115431E536229c5A4272a29BedC92127dbbeE", tokenAddress: "0x6DD4E9E85b96D4cb8a0C16C8a9b097e1c9205617", imageFile: "pokpok-agent-brain.png" },
+  { tokenName: "Sage", ticker: "SAGE", stakeContract: "0x6fd43841BF82d6BF762fD675B78922E3fb143425", tokenAddress: "0x8dd524A86195a6Ef95304E7F0DD9c405A2E78859", imageFile: "sage.png" }
 ];
