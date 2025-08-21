@@ -1038,5 +1038,15 @@
     "participants": "1,024",
     "oversub": "132",
     "launchTime": "17:00"
+    },
+        {
+    "name": "PokPok Agent Brain",
+    "ticker": "CDTA",
+    "baseUnlock": 28,
+    "date": "2025-08-21",
+    "image": "/images/pokpok-agent-brain.png",
+    "participants": "11,139",
+    "oversub": "363",
+    "launchTime": "17:00"
     }
 ]
