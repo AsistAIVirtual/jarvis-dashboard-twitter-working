@@ -410,5 +410,9 @@
     {
 "name": "AI INU",
 "ticker": "INU"
+},
+      {
+"name": "PokPok Agent Brain",
+"ticker": "CDTA"
 }
 ]
