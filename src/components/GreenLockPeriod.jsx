@@ -72,10 +72,10 @@ export default function GreenLockPeriod() {
           <option value="under22">Under 22 Days</option>
         </select>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
         {currentTokens.map((token, i) => (
-          <div key={i} className="bg-white bg-opacity-10 backdrop-blur-md p-2 rounded shadow">
-            <img src={token.image || '/default.png'} alt={token.ticker} className="w-10 h-10 mb-2" />
+          <div key={i} className="bg-white bg-opacity-10 backdrop-blur-sm p-2 rounded shadow">
+            <img src={token.image || '/default.png'} alt={token.ticker} className="w-4 h-4 mb-1" />
             <h3 className="font-bold">{token.name} ({token.ticker})</h3>
             <p>Unlocking in: {token.unlockingDays} days</p>
             <p>Participants: {token.participants || 0}</p>
