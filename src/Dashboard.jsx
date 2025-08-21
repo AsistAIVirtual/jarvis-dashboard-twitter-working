@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import ReminderForm from './components/ReminderForm';
 import DailyVolume from './components/DailyVolume';
 import GreenLockPeriod from './components/GreenLockPeriod';
-import GenesisStaking from './components/GenesisStaking'; // ✅ Yeni eklenen import
+import GenesisStaking from './components/GenesisStaking'; // ✅ new import
 
 export default function Dashboard() {
   const [jarvisPrice, setJarvisPrice] = useState(null);
