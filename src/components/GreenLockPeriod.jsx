@@ -8,7 +8,7 @@ export default function GreenLockPeriod() {
   const [sortOption, setSortOption] = useState('');
   const [filterOption, setFilterOption] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const tokensPerPage = 9;
+  const tokensPerPage = 12;
   const [updatedData, setUpdatedData] = useState([]);
 
   useEffect(() => {
