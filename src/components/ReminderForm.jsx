@@ -165,7 +165,7 @@ export default function ReminderForm() {
         </div>
 
         <div className="mb-4">
-          <label className="block mb-1 text-sm">Your Twitter Username</label>
+          <label className="block mb-1 text-sm">Your X(Twitter) Username</label>
           <input
             type="text"
             value={twitterUsername}
