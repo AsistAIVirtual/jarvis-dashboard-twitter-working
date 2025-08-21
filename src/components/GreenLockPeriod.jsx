@@ -8,7 +8,7 @@ export default function GreenLockPeriod() {
   const [sortOption, setSortOption] = useState('');
   const [filterOption, setFilterOption] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const tokensPerPage = 15;
+  const tokensPerPage = 16;
   const [updatedData, setUpdatedData] = useState([]);
 
   useEffect(() => {
@@ -72,10 +72,10 @@ export default function GreenLockPeriod() {
           <option value="under22">Under 22 Days</option>
         </select>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 sm:grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-3 sm:grid-cols-4 gap-1">
         {currentTokens.map((token, i) => (
           <div key={i} className="bg-white bg-opacity-10 backdrop-blur-sm p-2 rounded shadow">
-            <img src={token.image || '/default.png'} alt={token.ticker} className="w-4 h-4 mb-1" />
+            <img src={token.image || '/default.png'} alt={token.ticker} className="w-3 h-3 mb-1" />
             <h3 className="font-bold">{token.name} ({token.ticker})</h3>
             <p>Unlocking in: {token.unlockingDays} days</p>
             <p>Participants: {token.participants || 0}</p>
