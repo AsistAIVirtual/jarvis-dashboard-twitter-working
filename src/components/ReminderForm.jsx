@@ -171,7 +171,7 @@ export default function ReminderForm() {
             value={twitterUsername}
             onChange={(e) => setTwitterUsername(e.target.value)}
             className="w-full p-2 rounded bg-gray-800 text-white border border-gray-600"
-            placeholder="@username"
+            placeholder="username"
           />
         </div>
 
