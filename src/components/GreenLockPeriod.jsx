@@ -75,7 +75,7 @@ export default function GreenLockPeriod() {
       <div className="grid grid-cols-2 sm:grid-cols-3 sm:grid-cols-4 gap-1">
         {currentTokens.map((token, i) => (
           <div key={i} className="bg-white bg-opacity-10 backdrop-blur-sm p-2 rounded shadow">
-            <img src={token.image || '/default.png'} alt={token.ticker} className="w-10 h-10 mb-2" />
+            <img src={token.image || '/default.png'} alt={token.ticker} className="w-12 h-12 mb-2" />
             <h3 className="font-bold">{token.name} ({token.ticker})</h3>
             <p>Unlocking in: {token.unlockingDays} days</p>
             <p>Participants: {token.participants || 0}</p>
