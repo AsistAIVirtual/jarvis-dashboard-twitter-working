@@ -89,7 +89,7 @@ export const tokenList = [
   { tokenName: "AIBRK", ticker: "AIBRK", stakeContract: "0x2b415306F7c6E898Ac503e7b88a3e967cA26BeF3", tokenAddress: "0xD0924FA4C6BA194294a414d0fB826739deD98b24", imageFile: "aibrk.png" },
   { tokenName: "ModelGuard", ticker: "GUARD", stakeContract: "0xaD737613762A81215F4C51962446e4697681713A", tokenAddress: "0xb50AFD03B207BB5fED906ceaCD9389E454A00A66", imageFile: "modelguard.png" },
   { tokenName: "Flyte AI", ticker: "FLYTE", stakeContract: "0x51F53A65e3dfd5da650e95aF67935Bb79114D2F2", tokenAddress: "0x34c4a0056faD621C723433A473140Aadc8998A8b", imageFile: "flyte-ai.png" },
-    { tokenName: "Vpay", ticker: "VPAY", stakeContract: "0x708Ddd43287e2fC474D56279f6bdF1E045baDe87", tokenAddress: "0x98aC5B33A4Ef1151f138941c979211599c2fF953", imageFile: "vpay.png" },
+  { tokenName: "Vpay", ticker: "VPAY", stakeContract: "0x708Ddd43287e2fC474D56279f6bdF1E045baDe87", tokenAddress: "0x98aC5B33A4Ef1151f138941c979211599c2fF953", imageFile: "vpay.png" },
   { tokenName: "Advolve", ticker: "ADV", stakeContract: "0x12b9c242e4f3036e45Dda42b918A3870660AB521", tokenAddress: "0x3A6d6c9489D67c491BDe002EeCb8f5fb46309d83", imageFile: "advolve.png" },
   { tokenName: "Playstack AI", ticker: "PLSTK", stakeContract: "0xdd94b876c404F3902150C7e0fA361b46102714B3", tokenAddress: "0xbB63EB73EC6465Cf8fE7Cc5e3C60fD95576b7810", imageFile: "playstack-ai.png" },
   { tokenName: "Arvos AI", ticker: "ARVOS", stakeContract: "0xAF2Fb8E89E25Fb7fe84fc28A730CF0e6f45425ed", tokenAddress: "0x1868C380E1D7883126dFe6C5ab2908FB2F944974", imageFile: "arvos-ai.png" },
@@ -108,5 +108,6 @@ export const tokenList = [
   { tokenName: "ArAIstotle", ticker: "FACY", stakeContract: "0x0bf72f32F51f004Bb92bD234bb49e5F30f78ffe8", tokenAddress: "0xFAC77f01957ed1B3DD1cbEa992199B8f85B6E886", imageFile: "araistotle.png" },
   { tokenName: "AI INU", ticker: "INU", stakeContract: "0x931750847698D3DCa8f2AaD7FA590e202918B4fd", tokenAddress: "0xA0ec3d7dc6E94736513bC2A35CA34E49b7681b51", imageFile: "ai-inu.png" },
   { tokenName: "PokPok Agent Brain", ticker: "CDTA", stakeContract: "0x3e8115431E536229c5A4272a29BedC92127dbbeE", tokenAddress: "0x6DD4E9E85b96D4cb8a0C16C8a9b097e1c9205617", imageFile: "pokpok-agent-brain.png" },
-  { tokenName: "Sage", ticker: "SAGE", stakeContract: "0x6fd43841BF82d6BF762fD675B78922E3fb143425", tokenAddress: "0x8dd524A86195a6Ef95304E7F0DD9c405A2E78859", imageFile: "sage.png" }
+  { tokenName: "Sage", ticker: "SAGE", stakeContract: "0x6fd43841BF82d6BF762fD675B78922E3fb143425", tokenAddress: "0x8dd524A86195a6Ef95304E7F0DD9c405A2E78859", imageFile: "sage.png" },
+  { tokenName: "Shumi", ticker: "SHUMI", stakeContract: "0x8b4eAf3767C477455fbbC9f47fbE87865dD9EcB2", tokenAddress: "0xD85Bb30De78f9B760D86b527bb13Ea5A789AC3d1", imageFile: "shumi.png" }
 ];
