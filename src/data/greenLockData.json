@@ -1058,5 +1058,15 @@
     "participants": "10,366",
     "oversub": "306",
     "launchTime": "17:00"
+    },
+        {
+    "name": "Shumi",
+    "ticker": "SHUMI",
+    "baseUnlock": 28,
+    "date": "2025-08-24",
+    "image": "/images/shumi.png",
+    "participants": "2,004",
+    "oversub": "108",
+    "launchTime": "17:00"
     }
 ]
