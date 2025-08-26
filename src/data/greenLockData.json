@@ -1068,5 +1068,15 @@
     "participants": "2,004",
     "oversub": "108",
     "launchTime": "17:00"
+    },
+          {
+    "name": "Turtle Rush",
+    "ticker": "TURTLE",
+    "baseUnlock": 11,
+    "date": "2025-08-26",
+    "image": "/images/turtle-rush.png",
+    "participants": "415",
+    "oversub": "137",
+    "launchTime": "17:00"
     }
 ]
