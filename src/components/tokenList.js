@@ -109,5 +109,6 @@ export const tokenList = [
   { tokenName: "AI INU", ticker: "INU", stakeContract: "0x931750847698D3DCa8f2AaD7FA590e202918B4fd", tokenAddress: "0xA0ec3d7dc6E94736513bC2A35CA34E49b7681b51", imageFile: "ai-inu.png" },
   { tokenName: "PokPok Agent Brain", ticker: "CDTA", stakeContract: "0x3e8115431E536229c5A4272a29BedC92127dbbeE", tokenAddress: "0x6DD4E9E85b96D4cb8a0C16C8a9b097e1c9205617", imageFile: "pokpok-agent-brain.png" },
   { tokenName: "Sage", ticker: "SAGE", stakeContract: "0x6fd43841BF82d6BF762fD675B78922E3fb143425", tokenAddress: "0x8dd524A86195a6Ef95304E7F0DD9c405A2E78859", imageFile: "sage.png" },
-  { tokenName: "Shumi", ticker: "SHUMI", stakeContract: "0x8b4eAf3767C477455fbbC9f47fbE87865dD9EcB2", tokenAddress: "0xD85Bb30De78f9B760D86b527bb13Ea5A789AC3d1", imageFile: "shumi.png" }
+  { tokenName: "Shumi", ticker: "SHUMI", stakeContract: "0x8b4eAf3767C477455fbbC9f47fbE87865dD9EcB2", tokenAddress: "0xD85Bb30De78f9B760D86b527bb13Ea5A789AC3d1", imageFile: "shumi.png" },
+  { tokenName: "Turtle Rush", ticker: "TURTLE", stakeContract: "0x841b2dee53EFBb975AA1A99ad3cD853F787ffFb4", tokenAddress: "0xb87845865997e7E73598423670e22095fDE06E91", imageFile: "turtle-rush.png" }
 ];
