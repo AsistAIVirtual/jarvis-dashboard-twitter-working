@@ -1069,7 +1069,7 @@
     "oversub": "108",
     "launchTime": "17:00"
     },
-          {
+    {
     "name": "Turtle Rush",
     "ticker": "TURTLE",
     "baseUnlock": 11,
@@ -1077,6 +1077,26 @@
     "image": "/images/turtle-rush.png",
     "participants": "415",
     "oversub": "137",
+    "launchTime": "17:00"
+    },
+    {
+    "name": "Yunai",
+    "ticker": "YUNAI",
+    "baseUnlock": 30,
+    "date": "2025-08-28",
+    "image": "/images/yunai.png",
+    "participants": "2,265",
+    "oversub": "178.83",
+    "launchTime": "17:00"
+    },
+      {
+    "name": "Pharmachain AI",
+    "ticker": "PHAI",
+    "baseUnlock": 29,
+    "date": "2025-08-28",
+    "image": "/images/pharma-chain.png",
+    "participants": "1,464",
+    "oversub": "219",
     "launchTime": "17:00"
     }
 ]
