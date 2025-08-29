@@ -426,5 +426,13 @@
    {
 "name": "Turtle Rush",
 "ticker": "TURTLE"
+},
+   {
+"name": "Yunai",
+"ticker": "YUNAI"
+},
+   {
+"name": "Pharmachain AI",
+"ticker": "PHAI"
 }
 ]
