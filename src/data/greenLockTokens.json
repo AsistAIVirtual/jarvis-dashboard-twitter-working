@@ -434,5 +434,17 @@
    {
 "name": "Pharmachain AI",
 "ticker": "PHAI"
+},
+     {
+"name": "GM FM",
+"ticker": "RADIO"
+},
+     {
+"name": "Nuwa World",
+"ticker": "NUWA"
+},
+     {
+"name": "Fyni AI",
+"ticker": "FYNI"
 }
 ]
