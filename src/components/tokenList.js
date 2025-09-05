@@ -112,5 +112,8 @@ export const tokenList = [
   { tokenName: "Shumi", ticker: "SHUMI", stakeContract: "0x8b4eAf3767C477455fbbC9f47fbE87865dD9EcB2", tokenAddress: "0xD85Bb30De78f9B760D86b527bb13Ea5A789AC3d1", imageFile: "shumi.png" },
   { tokenName: "Turtle Rush", ticker: "TURTLE", stakeContract: "0x841b2dee53EFBb975AA1A99ad3cD853F787ffFb4", tokenAddress: "0xb87845865997e7E73598423670e22095fDE06E91", imageFile: "turtle-rush.png" },
   { tokenName: "Yunai", ticker: "YUNAI", stakeContract: "0x534D8542db61812Dd860b24057722dDE9dCd14e4", tokenAddress: "0xEa2E0887dC584A16433D49C49295809AC5C0DA8e", imageFile: "yunai.png" },
-  { tokenName: "Pharmachain AI", ticker: "PHAI", stakeContract: "0xB43C1fD3843DB83e8ba8ca278dEb00A60D235b0a", tokenAddress: "0x3513E4a7d27d18C2c894d98bc5A55406360b9BA3", imageFile: "pharmachain-ai.png" }
+  { tokenName: "Pharmachain AI", ticker: "PHAI", stakeContract: "0xB43C1fD3843DB83e8ba8ca278dEb00A60D235b0a", tokenAddress: "0x3513E4a7d27d18C2c894d98bc5A55406360b9BA3", imageFile: "pharmachain-ai.png" },
+  { tokenName: "GM FM", ticker: "RADIO", stakeContract: "0xd70D96804B2e5b56ad45936C09BEc0AA4a749Ded", tokenAddress: "0xdD026a9Ff84f54338a072263F5Bf7e86d0C9d972", imageFile: "gm-fm.png" },
+  { tokenName: "Nuwa World", ticker: "NUWA", stakeContract: "0x68C511929e7930cBDfE1813B5ae831d24a3288B4", tokenAddress: "0x3dc6C3231f3aB298430b02357a6F0a1E370A54c6", imageFile: "nuwa-world.png" },
+  { tokenName: "Fyni AI", ticker: "FYNI", stakeContract: "0x456CAfAE9A3015590862689B0Ff92bD71b8A0e74", tokenAddress: "0x22c0a2e55AeD8B317A285ccbd4f3D8eE24C9e5e3", imageFile: "fyni-ai.png" }
 ];
