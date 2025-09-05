@@ -1098,5 +1098,35 @@
     "participants": "1,464",
     "oversub": "219",
     "launchTime": "17:00"
+    },
+        {
+    "name": "GM FM",
+    "ticker": "RADIO",
+    "baseUnlock": 25,
+    "date": "2025-09-05",
+    "image": "/images/gm-fm.png",
+    "participants": "353",
+    "oversub": "125",
+    "launchTime": "17:00"
+    },
+        {
+    "name": "Nuwa World",
+    "ticker": "NUWA",
+    "baseUnlock": 22,
+    "date": "2025-09-05",
+    "image": "/images/nuwa-world.png",
+    "participants": "585",
+    "oversub": "123",
+    "launchTime": "17:00"
+    },
+        {
+    "name": "Fyni AI",
+    "ticker": "FYNI",
+    "baseUnlock": 0,
+    "date": "2025-09-05",
+    "image": "/images/fyni-ai.png",
+    "participants": "13,550",
+    "oversub": "383",
+    "launchTime": "17:00"
     }
 ]
