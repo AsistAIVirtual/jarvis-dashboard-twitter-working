@@ -1133,10 +1133,20 @@
     "name": "Flash Media",
     "ticker": "FLASH",
     "baseUnlock": 19,
-    "date": "2025-09-05",
+    "date": "2025-09-10",
     "image": "/images/flash-media.png",
     "participants": "741",
     "oversub": "192",
     "launchTime": "12:00"
-    }
+    },
+          {
+    "name": "VERONICA",
+    "ticker": "VERONICA",
+    "baseUnlock": 28,
+    "date": "2025-09-10",
+    "image": "/images/veronica.png",
+    "participants": "2,313",
+    "oversub": "123",
+    "launchTime": "12:00"
+    }  
 ]
