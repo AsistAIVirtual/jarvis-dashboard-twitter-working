@@ -115,5 +115,6 @@ export const tokenList = [
   { tokenName: "Pharmachain AI", ticker: "PHAI", stakeContract: "0xB43C1fD3843DB83e8ba8ca278dEb00A60D235b0a", tokenAddress: "0x3513E4a7d27d18C2c894d98bc5A55406360b9BA3", imageFile: "pharmachain-ai.png" },
   { tokenName: "GM FM", ticker: "RADIO", stakeContract: "0xd70D96804B2e5b56ad45936C09BEc0AA4a749Ded", tokenAddress: "0xdD026a9Ff84f54338a072263F5Bf7e86d0C9d972", imageFile: "gm-fm.png" },
   { tokenName: "Nuwa World", ticker: "NUWA", stakeContract: "0x68C511929e7930cBDfE1813B5ae831d24a3288B4", tokenAddress: "0x3dc6C3231f3aB298430b02357a6F0a1E370A54c6", imageFile: "nuwa-world.png" },
-  { tokenName: "Fyni AI", ticker: "FYNI", stakeContract: "0x456CAfAE9A3015590862689B0Ff92bD71b8A0e74", tokenAddress: "0x22c0a2e55AeD8B317A285ccbd4f3D8eE24C9e5e3", imageFile: "fyni-ai.png" }
+  { tokenName: "Fyni AI", ticker: "FYNI", stakeContract: "0x456CAfAE9A3015590862689B0Ff92bD71b8A0e74", tokenAddress: "0x22c0a2e55AeD8B317A285ccbd4f3D8eE24C9e5e3", imageFile: "fyni-ai.png" },
+  { tokenName: "Flash Media", ticker: "Flash Media", stakeContract: "0x29830b3B408a39f8b60d61369315fc4606fabdF8", tokenAddress: "0xeACd751c5Eb7d3F6B1154728A2F04c351D9266C8", imageFile: "flash-media.png" }  
 ];
