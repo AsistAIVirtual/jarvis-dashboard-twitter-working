@@ -454,5 +454,9 @@
      {
 "name": "VERONICA",
 "ticker": "VERONICA"
-}    
+},
+     {
+"name": "Faibles",
+"ticker": "FAIBL"
+}   
 ]
