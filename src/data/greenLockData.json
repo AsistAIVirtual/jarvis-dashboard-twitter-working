@@ -1148,5 +1148,15 @@
     "participants": "2,313",
     "oversub": "123",
     "launchTime": "12:00"
+    },
+          {
+    "name": "Faibles",
+    "ticker": "FAIBL",
+    "baseUnlock": 59,
+    "date": "2025-09-11",
+    "image": "/images/faibles.png",
+    "participants": "1,550",
+    "oversub": "109",
+    "launchTime": "12:00"
     }  
 ]
