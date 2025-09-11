@@ -458,5 +458,9 @@
      {
 "name": "Faibles",
 "ticker": "FAIBL"
+},
+     {
+"name": "SPIRA",
+"ticker": "SPIRA"
 }   
 ]
