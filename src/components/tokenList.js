@@ -118,5 +118,7 @@ export const tokenList = [
   { tokenName: "Fyni AI", ticker: "FYNI", stakeContract: "0x456CAfAE9A3015590862689B0Ff92bD71b8A0e74", tokenAddress: "0x22c0a2e55AeD8B317A285ccbd4f3D8eE24C9e5e3", imageFile: "fyni-ai.png" },
   { tokenName: "Flash Media", ticker: "Flash Media", stakeContract: "0x29830b3B408a39f8b60d61369315fc4606fabdF8", tokenAddress: "0xeACd751c5Eb7d3F6B1154728A2F04c351D9266C8", imageFile: "flash-media.png" },
   { tokenName: "VERONICA", ticker: "VERONICA", stakeContract: "0x2cD5C203aF51c874d0Cb3c5f5f0b23D9e38C1d49", tokenAddress: "0x164239FA94aec9c4e437Bf6890ea8602b759fd74", imageFile: "veronica.png" },
-  { tokenName: "Faibles", ticker: "FAIBL", stakeContract: "0xD5f893180f08dc17c0339Eb965F807eb5c001F49", tokenAddress: "0xa3a8b391b5Fec523ff9797597A60c38E66E97c77", imageFile: "faibles.png" }    
+  { tokenName: "Faibles", ticker: "FAIBL", stakeContract: "0xD5f893180f08dc17c0339Eb965F807eb5c001F49", tokenAddress: "0xa3a8b391b5Fec523ff9797597A60c38E66E97c77", imageFile: "faibles.png" },
+  { tokenName: "SPIRA", ticker: "SPIRA", stakeContract: "0x728Aad708fABCf9e2D2198232589D2e4b7b425C9", tokenAddress: "0xe0cE610C37C2691F064F1fe5C213E9ba9C16AD0C", imageFile: "spira.png" },
+  { tokenName: "SUNNY", ticker: "SUNNY", stakeContract: "0xF0e610c84CEF883B769088733DE393C3163b4Eb7", tokenAddress: "0xAE5fC5E1d337AD9342fcEE9a6Ddabb265509Ee88", imageFile: "sunny.png" }  
 ];
