@@ -1178,5 +1178,15 @@
     "participants": "1,479",
     "oversub": "181",
     "launchTime": "12:00"
-    }  
+    },
+          {
+    "name": "Waveform",
+    "ticker": "WAVE",
+    "baseUnlock": 0,
+    "date": "2025-09-18",
+    "image": "/images/waveform.png",
+    "participants": "2,958",
+    "oversub": "256",
+    "launchTime": "12:00"
+    }    
 ]
