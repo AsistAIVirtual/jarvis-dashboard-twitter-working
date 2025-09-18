@@ -466,5 +466,9 @@
      {
 "name": "SUNNY",
 "ticker": "SUNNY"
-}   
+},
+     {
+"name": "Waveform",
+"ticker": "WAVE"
+}     
 ]
