@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -10,38 +9,40 @@ export default function DailyVolume() {
   const [isEligible, setIsEligible] = useState(false);
   const [volumeData, setVolumeData] = useState(null);
 
-  const checkEligibility = async () => {
-    const stakeAddress = '0xa72fB1A92A1489a986fE1d27573F4F6a1bA83dBe';
-    const tokenAddress = '0x1E562BF73369D1d5B7E547b8580039E1f05cCc56';
+  const tokenAddress = '0x1E562BF73369D1d5B7E547b8580039E1f05cCc56'; // $JARVIS
+  const stakeAddress = '0xa72fB1A92A1489a986fE1d27573F4F6a1bA83dBe'; // Stake contract
+  const virtualTokenAddress = '0x0b3e328455c4059eeb9e3f84b5543f74e24e7e1b'; // VIRTUAL
+  const apiKey = process.env.REACT_APP_BASESCAN_API_KEY;
 
+  // --- Stake & Hold kontrolü ---
+  const checkEligibility = async () => {
     try {
+      if (!wallet) {
+        alert('Enter wallet address first.');
+        return;
+      }
+
+      // Wallet hold balance
       const holdRes = await fetch(
-        `https://api.basescan.org/api?module=account&action=tokenbalance&contractaddress=${tokenAddress}&address=${wallet}&tag=latest&apikey=${process.env.REACT_APP_BASESCAN_API_KEY}`
+        `https://api.basescan.org/api?module=account&action=tokenbalance&contractaddress=${tokenAddress}&address=${wallet}&tag=latest&apikey=${apiKey}`
       );
       const holdData = await holdRes.json();
       const holdAmount = parseFloat(holdData.result) / 1e18;
 
+      // Stake balance (wallet adına stake kontratında duran miktar)
       const stakeRes = await fetch(
-        `https://api.basescan.org/api?module=account&action=tokentx&address=${wallet}&contractaddress=${tokenAddress}&startblock=0&endblock=99999999&sort=asc&apikey=${process.env.REACT_APP_BASESCAN_API_KEY}`
+        `https://api.basescan.org/api?module=account&action=tokenbalance&contractaddress=${tokenAddress}&address=${stakeAddress}&tag=latest&apikey=${apiKey}`
       );
-      const stakeTxData = await stakeRes.json();
-      let stakeAmount = 0;
-
-      for (let tx of stakeTxData.result) {
-        if (
-          tx.to.toLowerCase() === stakeAddress.toLowerCase() &&
-          tx.from.toLowerCase() === wallet.toLowerCase()
-        ) {
-          stakeAmount += parseFloat(tx.value) / 1e18;
-        }
-      }
+      const stakeData = await stakeRes.json();
+      const stakeAmount = parseFloat(stakeData.result) / 1e18;
 
       const total = holdAmount + stakeAmount;
       if (total >= 50000) {
         setIsEligible(true);
+        alert(`Eligible! Total: ${total.toLocaleString()} JARVIS`);
       } else {
         setIsEligible(false);
-        alert('You must stake or hold at least 50,000 $JARVIS');
+        alert(`Not eligible. You have only ${total.toLocaleString()} JARVIS (need 50,000).`);
       }
     } catch (err) {
       console.error(err);
@@ -49,15 +50,15 @@ export default function DailyVolume() {
     }
   };
 
+  // --- Volume kontrolü ---
   const checkVolume = async () => {
     if (!wallet || !startDate || !endDate) return;
     try {
-      const virtualTokenAddress = '0x0b3e328455c4059eeb9e3f84b5543f74e24e7e1b';
       const startTimestamp = Math.floor(startDate.setHours(0, 0, 0, 0) / 1000);
       const endTimestamp = Math.floor(endDate.setHours(23, 59, 59, 999) / 1000);
 
       const txRes = await fetch(
-        `https://api.basescan.org/api?module=account&action=tokentx&address=${wallet}&contractaddress=${virtualTokenAddress}&startblock=0&endblock=99999999&sort=asc&apikey=${process.env.REACT_APP_BASESCAN_API_KEY}`
+        `https://api.basescan.org/api?module=account&action=tokentx&address=${wallet}&contractaddress=${virtualTokenAddress}&startblock=0&endblock=99999999&sort=asc&apikey=${apiKey}`
       );
       const txData = await txRes.json();
 
@@ -71,7 +72,9 @@ export default function DailyVolume() {
         }
       }
 
-      const priceRes = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=virtual-protocol&vs_currencies=usd');
+      const priceRes = await fetch(
+        'https://api.coingecko.com/api/v3/simple/price?ids=virtual-protocol&vs_currencies=usd'
+      );
       const priceData = await priceRes.json();
       const price = priceData['virtual-protocol']?.usd || 0;
       const usdValue = totalAmount * price;
@@ -122,7 +125,7 @@ export default function DailyVolume() {
         <button
           onClick={checkVolume}
           disabled={!isEligible}
-          className={`$ {
+          className={`${
             isEligible ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-600 cursor-not-allowed'
           } text-white font-semibold py-2 px-4 rounded`}
         >
@@ -131,7 +134,9 @@ export default function DailyVolume() {
       </div>
       {volumeData && (
         <div className="mt-6 text-center">
-          <p className="text-lg font-semibold">Total Volume: {volumeData.totalAmount.toFixed(4)} VIRTUAL</p>
+          <p className="text-lg font-semibold">
+            Total Volume: {volumeData.totalAmount.toFixed(4)} VIRTUAL
+          </p>
           <p className="text-md text-gray-300">Transactions: {volumeData.txCount}</p>
           <p className="text-md text-gray-300">≈ ${volumeData.usdValue.toFixed(2)} USD</p>
         </div>
