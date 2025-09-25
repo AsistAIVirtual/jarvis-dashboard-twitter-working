@@ -470,5 +470,9 @@
      {
 "name": "Waveform",
 "ticker": "WAVE"
-}     
+},
+     {
+"name": "Ground Zero",
+"ticker": "ZERO"
+}  
 ]
