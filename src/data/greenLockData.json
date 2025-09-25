@@ -1188,5 +1188,15 @@
     "participants": "2,958",
     "oversub": "256",
     "launchTime": "12:00"
-    }    
+    },
+          {
+    "name": "Ground Zero",
+    "ticker": "ZERO",
+    "baseUnlock": 21,
+    "date": "2025-09-24",
+    "image": "/images/ground-zero.png",
+    "participants": "1,657",
+    "oversub": "189",
+    "launchTime": "12:00"
+    }   
 ]
