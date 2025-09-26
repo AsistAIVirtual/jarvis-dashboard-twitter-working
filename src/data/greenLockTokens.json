@@ -474,5 +474,9 @@
      {
 "name": "Ground Zero",
 "ticker": "ZERO"
-}  
+},
+     {
+"name": "LORA",
+"ticker": "LORA"
+}   
 ]
