@@ -16,7 +16,7 @@ export default function ReminderForm() {
   const [stakeAmount, setStakeAmount] = useState(0);
   const [maxReminders, setMaxReminders] = useState(0);
 
-  // Önizleme için
+  // Önizleme
   const [unlockPreview, setUnlockPreview] = useState(null);
   const [duePreview, setDuePreview] = useState(null);
 
@@ -53,25 +53,28 @@ export default function ReminderForm() {
     }
   }
 
-  // Stake kontrolü (0 => 1 claim, >=100k => 3 claim)
+  // Stake kontrolü (deposit tx toplamı)  —  <100k ⇒ 1 hak, ≥100k ⇒ 3 hak
   const checkStake = async () => {
     try {
       if (!wallet) { alert("First enter your wallet address."); return; }
+
       const url = `${BASESCAN_API}?module=account&action=tokentx&contractaddress=${TOKEN_CONTRACT}&address=${wallet}&apikey=${API_KEY}`;
       const res = await fetch(url);
       const data = await res.json();
 
-      const txs = (data?.result || []).filter(
-        (tx) => String(tx?.to || '').toLowerCase() === STAKE_ADDRESS.toLowerCase()
+      const arr = Array.isArray(data?.result) ? data.result : [];
+      const txs = arr.filter(tx =>
+        String(tx?.to || '').toLowerCase()   === STAKE_ADDRESS.toLowerCase() &&
+        String(tx?.from || '').toLowerCase() === String(wallet).toLowerCase()
       );
 
-      const total = txs.reduce((acc, tx) => acc + (parseFloat(tx?.value || '0') / 1e18), 0);
+      const total = txs.reduce((acc, tx) => acc + ((Number(tx?.value) || 0) / 1e18), 0);
       setStakeAmount(total);
 
       const rights = total >= 100000 ? 3 : 1;
       setMaxReminders(rights);
       setIsEligible(true);
-      alert(`Stake: ${total.toLocaleString()} token. Claim: ${rights}.`);
+      alert(`Stake detected: ${total.toLocaleString()} tokens. Rights: ${rights}.`);
     } catch (err) {
       console.error(err);
       alert("Failed to check stake.");
@@ -81,12 +84,12 @@ export default function ReminderForm() {
   const handleSubmit = async () => {
     try {
       if (!wallet || !twitterUsername || !token) {
-        alert("Wallet, Twitter username ve Token selection is mandatory .");
+        alert("Wallet, Twitter username and Token selection are mandatory.");
         return;
       }
       const remindInDays = Number(reminderCount ?? 0);
       if (!Number.isFinite(remindInDays) || remindInDays < 0) {
-        alert("Days Before Unlock must be numeric and 0+.");
+        alert("Days Before Unlock must be numeric and >= 0.");
         return;
       }
 
@@ -95,7 +98,7 @@ export default function ReminderForm() {
       const baseUnlockDays = Number(row.baseUnlock);
       if (!Number.isFinite(baseUnlockDays)) { alert("baseUnlock value is incorrect."); return; }
 
-      // Unlock = date + baseUnlock (+launchTime varsa)
+      // Unlock = date + baseUnlock (+ launchTime)
       const startUTC = new Date(`${row.date}T00:00:00Z`);
       let unlockDate = new Date(startUTC.getTime() + baseUnlockDays * 86400000);
       if (row.launchTime && /^\d{1,2}:\d{2}$/.test(row.launchTime)) {
@@ -105,13 +108,13 @@ export default function ReminderForm() {
         ));
       }
 
-      // dueAt = unlock − remindInDays gün (09:00 UTC)
+      // dueAt = unlock − remindInDays gün @09:00 UTC
       const rawDue = new Date(unlockDate.getTime() - remindInDays * 86400000);
       const dueAt = new Date(Date.UTC(
         rawDue.getUTCFullYear(), rawDue.getUTCMonth(), rawDue.getUTCDate(), 9, 0, 0, 0
       ));
       if (dueAt.getTime() <= Date.now()) {
-        alert("The day you selected is in the past. Choose a larger number of days..");
+        alert("The selected reminder time is in the past. Choose a larger number of days.");
         return;
       }
 
@@ -123,7 +126,7 @@ export default function ReminderForm() {
         token: String(token).trim(),
         remindInDays,
         stakeAmount: Number(stakeAmount || 0),
-        dueAt: dueAt.toISOString(),                 // <<<< gönderilen alan
+        dueAt: dueAt.toISOString(),
       };
 
       console.log('subscribe payload ->', payload);
