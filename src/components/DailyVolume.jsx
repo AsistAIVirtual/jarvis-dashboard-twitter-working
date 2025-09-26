@@ -14,33 +14,36 @@ export default function DailyVolume() {
     const tokenAddress = '0x1E562BF73369D1d5B7E547b8580039E1f05cCc56';
 
     try {
-      // Hold kontrolü
+      // --- Hold kontrolü ---
       const holdRes = await fetch(
         `https://api.basescan.org/api?module=account&action=tokenbalance&contractaddress=${tokenAddress}&address=${wallet}&tag=latest&apikey=${process.env.REACT_APP_BASESCAN_API_KEY}`
       );
       const holdData = await holdRes.json();
-      const holdAmount = parseFloat(holdData.result) / 1e18;
+      const holdAmount = parseFloat(holdData.result || 0) / 1e18;
 
-      // Stake kontrolü (wallet → stake kontratına gönderilen tx’ler)
+      // --- Stake kontrolü ---
       const stakeRes = await fetch(
-        `https://api.basescan.org/api?module=account&action=tokentx&contractaddress=${tokenAddress}&address=${wallet}&startblock=0&endblock=99999999&sort=asc&apikey=${process.env.REACT_APP_BASESCAN_API_KEY}`
+        `https://api.basescan.org/api?module=account&action=tokentx&address=${wallet}&contractaddress=${tokenAddress}&startblock=0&endblock=99999999&sort=asc&apikey=${process.env.REACT_APP_BASESCAN_API_KEY}`
       );
       const stakeTxData = await stakeRes.json();
       let stakeAmount = 0;
-      for (let tx of stakeTxData.result) {
+
+      for (let tx of stakeTxData.result || []) {
         if (
+          tx.to &&
+          tx.from &&
           tx.to.toLowerCase() === stakeAddress.toLowerCase() &&
           tx.from.toLowerCase() === wallet.toLowerCase()
         ) {
-          stakeAmount += parseFloat(tx.value) / 1e18;
+          stakeAmount += parseFloat(tx.value || 0) / 1e18;
         }
       }
 
+      // --- Eligibility ---
       const total = holdAmount + stakeAmount;
-
       if (total >= 50000) {
         setIsEligible(true);
-        alert(`Eligible ✅ You hold/stake ${total.toLocaleString()} JARVIS`);
+        alert(`Eligible ✅ You hold/stake ${total.toLocaleString()} $JARVIS`);
       } else {
         setIsEligible(false);
         alert('You must stake or hold at least 50,000 $JARVIS');
@@ -65,15 +68,15 @@ export default function DailyVolume() {
 
       let totalAmount = 0;
       let txCount = 0;
-      for (let tx of txData.result) {
+      for (let tx of txData.result || []) {
         const timestamp = parseInt(tx.timeStamp);
         if (timestamp >= startTimestamp && timestamp <= endTimestamp) {
-          totalAmount += parseFloat(tx.value) / 1e18;
+          totalAmount += parseFloat(tx.value || 0) / 1e18;
           txCount++;
         }
       }
 
-      // Virtual fiyatı USD’ye çevirme
+      // Fiyatı Coingecko'dan çek
       const priceRes = await fetch(
         'https://api.coingecko.com/api/v3/simple/price?ids=virtual-protocol&vs_currencies=usd'
       );
@@ -92,8 +95,9 @@ export default function DailyVolume() {
     <div className="flex flex-col items-center mt-10 text-white">
       <h1 className="text-2xl font-bold mb-2">Daily Volume Checker</h1>
       <p className="text-sm text-gray-300 mb-4">
-        You must stake or hold at least 50,000 $JARVIS to use this tool.
+        You must stake or hold at least 50,000 $JARVIS
       </p>
+
       <input
         type="text"
         placeholder="Enter Wallet Address"
@@ -101,6 +105,7 @@ export default function DailyVolume() {
         onChange={(e) => setWallet(e.target.value)}
         className="mb-4 p-2 rounded bg-gray-900 text-white border border-gray-600 w-96"
       />
+
       <div className="flex gap-2 mb-4">
         <DatePicker
           placeholderText="dd.mm.yyyy"
@@ -117,6 +122,7 @@ export default function DailyVolume() {
           className="bg-gray-900 text-white border border-gray-600 p-2 rounded"
         />
       </div>
+
       <div className="flex gap-2 mb-4">
         <button
           onClick={checkEligibility}
@@ -134,13 +140,18 @@ export default function DailyVolume() {
           Check Volume
         </button>
       </div>
+
       {volumeData && (
         <div className="mt-6 text-center">
           <p className="text-lg font-semibold">
             Total Volume: {volumeData.totalAmount.toFixed(4)} VIRTUAL
           </p>
-          <p className="text-md text-gray-300">Transactions: {volumeData.txCount}</p>
-          <p className="text-md text-gray-300">≈ ${volumeData.usdValue.toFixed(2)} USD</p>
+          <p className="text-md text-gray-300">
+            Transactions: {volumeData.txCount}
+          </p>
+          <p className="text-md text-gray-300">
+            ≈ ${volumeData.usdValue.toFixed(2)} USD
+          </p>
         </div>
       )}
     </div>
