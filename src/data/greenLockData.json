@@ -1198,5 +1198,15 @@
     "participants": "1,657",
     "oversub": "189",
     "launchTime": "12:00"
-    }   
+    },
+          {
+    "name": "LORA",
+    "ticker": "LORA",
+    "baseUnlock": 16,
+    "date": "2025-09-26",
+    "image": "/images/lora.png",
+    "participants": "735",
+    "oversub": "119",
+    "launchTime": "12:00"
+    }     
 ]
