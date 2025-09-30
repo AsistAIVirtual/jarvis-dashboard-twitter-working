@@ -1208,5 +1208,15 @@
     "participants": "735",
     "oversub": "119",
     "launchTime": "12:00"
+    },
+          {
+    "name": "Tycoon by Shareland",
+    "ticker": "TYCOON",
+    "baseUnlock": 25,
+    "date": "2025-09-30",
+    "image": "/images/tycoon-by-shareland.png",
+    "participants": "3,531",
+    "oversub": "244",
+    "launchTime": "12:00"
     }     
 ]
