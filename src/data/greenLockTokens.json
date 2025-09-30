@@ -478,5 +478,9 @@
      {
 "name": "LORA",
 "ticker": "LORA"
-}   
+},
+     {
+"name": "Tycoon by Shareland",
+"ticker": "TYCOON"
+}     
 ]
