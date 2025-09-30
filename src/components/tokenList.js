@@ -123,5 +123,6 @@ export const tokenList = [
   { tokenName: "SUNNY", ticker: "SUNNY", stakeContract: "0xF0e610c84CEF883B769088733DE393C3163b4Eb7", tokenAddress: "0xAE5fC5E1d337AD9342fcEE9a6Ddabb265509Ee88", imageFile: "sunny.png" },
   { tokenName: "Waveform", ticker: "WAVE", stakeContract: "0x22BE2B7ED02948A72D042b0E300220c5eC677c64", tokenAddress: "0x64712FbDF19aE8b5B3B6D0478750E3D5e1A17718", imageFile: "waveform.png" },
   { tokenName: "Ground Zero", ticker: "ZERO", stakeContract: "0xd63CfDfD5538F88e14E10910Ba84C0F672948bad", tokenAddress: "0xEcc2a75027063A0C2769ECD6b133A8683128C8B3", imageFile: "ground-zero.png" },
-  { tokenName: "LORA", ticker: "LORA", stakeContract: "0x423cff030542Fc5cf7d1C6517aC0B6CB50512742", tokenAddress: "0x4DE71F7494362246abd7B511Dae043089b71C01C", imageFile: "lora.png" }  
+  { tokenName: "LORA", ticker: "LORA", stakeContract: "0x423cff030542Fc5cf7d1C6517aC0B6CB50512742", tokenAddress: "0x4DE71F7494362246abd7B511Dae043089b71C01C", imageFile: "lora.png" },
+  { tokenName: "Tycoon by Shareland", ticker: "TYCOON", stakeContract: "0x2DCD8ef8271406E7430AD76FAbA88C4796d96b36", tokenAddress: "0xdA4c86B5444294a5Ba3b806aE7718f1f95Cc3120", imageFile: "tycoon-by-shareland.png" }    
 ];
