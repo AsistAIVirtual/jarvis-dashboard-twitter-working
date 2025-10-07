@@ -1218,5 +1218,25 @@
     "participants": "3,531",
     "oversub": "244",
     "launchTime": "12:00"
-    }     
+    },
+          {
+    "name": "SWOLO AI",
+    "ticker": "SWOLO",
+    "baseUnlock": 23,
+    "date": "2025-10-07",
+    "image": "/images/swolo-ai.png",
+    "participants": "662",
+    "oversub": "129",
+    "launchTime": "12:00"
+    },
+          {
+    "name": "WAV 3 AGENTIC MUSIC DISCOVERY",
+    "ticker": "WAV3",
+    "baseUnlock": 23,
+    "date": "2025-10-07",
+    "image": "/images/wav-3-agentic-music-discovery.png",
+    "participants": "662",
+    "oversub": "129",
+    "launchTime": "12:00"
+    }   
 ]
